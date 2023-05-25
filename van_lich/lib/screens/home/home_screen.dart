@@ -365,10 +365,19 @@ class MoreButton extends StatelessWidget {
         dropdownStyleData: DropdownStyleData(
           width: 140,
           elevation: 0,
-          offset: Offset(-80, 180),
+          offset: Offset(-50, 180),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [BoxShadow(spreadRadius: 3.0, blurRadius: 8.0)]),
+
+              //Sua lai shadow nhin cho sang
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  spreadRadius: 1.5,
+                  blurRadius: 4.0
+                ),
+              ],
+          ),
         ),
       ),
     );
