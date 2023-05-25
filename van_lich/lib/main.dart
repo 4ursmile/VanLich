@@ -238,6 +238,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Pages(),
+      //Remove debug label
+      debugShowCheckedModeBanner: false,
+
     );
   }
 }
