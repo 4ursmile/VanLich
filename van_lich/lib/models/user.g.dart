@@ -8,27 +8,27 @@ part of 'user.dart';
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['id'] as String,
-      userName: json['userName'] as String? ?? '',
+      name: json['name'] as String? ?? '',
       email: json['email'] as String,
       password: json['password'] as String,
-      avt: json['avt'] as String? ?? '',
-      contents: (json['contents'] as List<dynamic>?)
+      avatarUrl: json['avatarUrl'] as String? ?? '',
+      contentIds: (json['contentIds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      favContents: (json['favContents'] as List<dynamic>?)
+      favContentIds: (json['favContentIds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      starContents: (json['starContents'] as List<dynamic>?)
+      starContentIds: (json['starContentIds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      savedContents: (json['savedContents'] as List<dynamic>?)
+      saveContentIds: (json['saveContentIds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      comments: (json['comments'] as List<dynamic>?)
+      commentIds: (json['commentIds'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
@@ -36,13 +36,13 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
-      'userName': instance.userName,
+      'name': instance.name,
       'email': instance.email,
       'password': instance.password,
-      'avt': instance.avt,
-      'contents': instance.contents,
-      'favContents': instance.favContents,
-      'starContents': instance.starContents,
-      'savedContents': instance.savedContents,
-      'comments': instance.comments,
+      'avatarUrl': instance.avatarUrl,
+      'contentIds': instance.contentIds,
+      'favContentIds': instance.favContentIds,
+      'starContentIds': instance.starContentIds,
+      'saveContentIds': instance.saveContentIds,
+      'commentIds': instance.commentIds,
     };

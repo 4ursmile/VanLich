@@ -7,25 +7,22 @@ part of 'comment.dart';
 // **************************************************************************
 
 Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
-      userId: json['userId'] as String,
-      commentId: json['commentId'] as String,
-      contentId: json['contentId'] as String,
-      text: json['text'] as String,
-      likes: json['likes'] as int? ?? 0,
-      dateTime: json['dateTime'] == null
-          ? null
-          : DateTime.parse(json['dateTime'] as String),
-      rootCmt: (json['rootCmt'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-    );
+      userID: json['userID'] as String,
+      id: json['id'] as String,
+      contentID: json['contentID'] as String,
+      text: json['text'] as String?,
+      nOfLikes: json['nOfLikes'] as int? ?? 0,
+      createDate: DateTime.parse(json['createDate'] as String),
+      parentCommentIds: json['parentCommentIds'] as String?,
+    )..nOfChildComments = json['nOfChildComments'] as int;
 
 Map<String, dynamic> _$CommentToJson(Comment instance) => <String, dynamic>{
-      'userId': instance.userId,
-      'commentId': instance.commentId,
-      'contentId': instance.contentId,
+      'id': instance.id,
+      'userID': instance.userID,
+      'contentID': instance.contentID,
       'text': instance.text,
-      'likes': instance.likes,
-      'dateTime': instance.dateTime?.toIso8601String(),
-      'rootCmt': instance.rootCmt,
+      'parentCommentIds': instance.parentCommentIds,
+      'createDate': instance.createDate.toIso8601String(),
+      'nOfLikes': instance.nOfLikes,
+      'nOfChildComments': instance.nOfChildComments,
     };

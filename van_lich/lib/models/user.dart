@@ -4,27 +4,27 @@ part 'user.g.dart';
 @JsonSerializable()
 class User {
   String id = '';
-  String userName = '';
+  String name = '';
   String email = '';
   String password = '';
-  String avt = '';
-  List<String> contents = [];
-  List<String> favContents = [];
-  List<String> starContents = [];
-  List<String> savedContents = [];
-  List<String> comments = [];
+  String avatarUrl = '';
+  List<String> contentIds = [];
+  List<String> favContentIds = [];
+  List<String> starContentIds = [];
+  List<String> saveContentIds = [];
+  List<String> commentIds = [];
 
   User({
     required this.id,
-    this.userName = '',
+    this.name = '',
     required this.email,
     required this.password,
-    this.avt = '',
-    this.contents = const [],
-    this.favContents = const [],
-    this.starContents = const [],
-    this.savedContents = const [],
-    this.comments = const []
+    this.avatarUrl = '',
+    this.contentIds = const [],
+    this.favContentIds = const [],
+    this.starContentIds = const [],
+    this.saveContentIds = const [],
+    this.commentIds = const []
 });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

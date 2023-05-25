@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:van_lich/components/behavior_button.dart';
 
 class ContentDetailScreen extends StatefulWidget {
   ContentDetailScreen({Key? key, required this.id}) : super(key: key);
@@ -9,53 +11,177 @@ class ContentDetailScreen extends StatefulWidget {
 }
 
 class _ContentDetailScreenState extends State<ContentDetailScreen> {
+  String dummyText = '''
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  ''';
+  PanelController _panelController = PanelController();
+  double _minHeightRatio = 0;
+  @override
+  void initState() {
+    Future.delayed(const Duration(milliseconds: 400), () {
+      _panelController.open();
+      _minHeightRatio = 0.3;
+      setState(() {
+
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Hero(
           tag: widget.id,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              Image(
-                  image: AssetImage('assets/images/ba-trieu-01.png'),
-                  fit: BoxFit.cover,
+          child: Material(
+            type: MaterialType.transparency,
+            child: SlidingUpPanel(
+              body: Image(
+                image: AssetImage('assets/images/ba-trieu-01.png'),
+                fit: BoxFit.cover,
               ),
-              DraggableScrollableSheet(
-                initialChildSize: 0.8,
-                  minChildSize: 0.3,
-                  maxChildSize: 0.8,
-                  builder: (context, controller) {
-                    return ClipRRect(
-                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-                      child: Container(
-                        color: Colors.white70,
-                        child: Column(
+              controller: _panelController,
+              defaultPanelState: PanelState.CLOSED,
+              header: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 150, vertical: 10),
+                child: Container(
+                  width: 60,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Colors.black.withOpacity(0.3),
+                  ),
+                ),
+              ),
+              minHeight: size.height * _minHeightRatio,
+              maxHeight: size.height * 0.8,
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+              panelBuilder: (controller) {
+                return Padding(
+                    padding: const EdgeInsets.only(left: 15, bottom: 20),
+                    child: ListView(
+                      controller: controller,
+                      children: [
+                        Column(
                           children: [
-                          const SizedBox(height: 10,),
-                          Container(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            width: 100,
-                            height: 5,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              color: Colors.black,
-                            ),
-                          ),
-                            Expanded(
-                              child: Container(
-                                child: SingleChildScrollView(
-                                  child: const Text('hehee'),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Bà Triệu',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                              ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'by Editor',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      'following',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Text(dummyText),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                BehaviorButton(
+                                    icon: Icons.star,
+                                    color: Colors.yellow,
+                                    text: '18K',
+                                    onTap: () {}),
+                                BehaviorButton(
+                                    icon: Icons.favorite,
+                                    color: Colors.red,
+                                    text: '18K',
+                                    onTap: () {
+                                      print('hihi');
+                                    }),
+                                BehaviorButton(
+                                    icon: Icons.messenger,
+                                    text: '18K',
+                                    onTap: () {}),
+                                BehaviorButton(
+                                    icon: Icons.bookmark,
+                                    text: '12K',
+                                    onTap: () {}),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
-                      ),
-                    );
-                  }
-              )
-            ],
+                         Text(
+                          'Liên quan',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            shadows: [
+                              BoxShadow(
+                                blurRadius: 6.0,
+                                spreadRadius: 3.0,
+                                offset: const Offset(2, 3),
+                                color: Colors.black.withOpacity(0.3)
+                              )
+                            ]
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15.0),
+                          child: Container(
+                            height: 60,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Color(0xffDDDDDD),
+                                  blurRadius: 6.0,
+                                  spreadRadius: 2.0,
+                                  offset: Offset(0.0, 0.0),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                        )
+                      ],
+                    ));
+              },
+            ),
           )),
     );
   }
