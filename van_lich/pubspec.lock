@@ -1010,6 +1010,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  swipe_deck:
+    dependency: "direct main"
+    description:
+      name: swipe_deck
+      sha256: d31547bc15e7bcfc1024f32830a6e298c53f272338c188a97ffa2ba1fc2a75c0
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   term_glyph:
     dependency: transitive
     description:
