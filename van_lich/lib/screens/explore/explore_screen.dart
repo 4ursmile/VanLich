@@ -3,6 +3,13 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:swipe_deck/swipe_deck.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/widgets.dart';
+import 'package:van_lich/data/collection.dart';
+import 'package:van_lich/data/content.dart';
+import 'package:van_lich/data/user.dart';
+import 'package:van_lich/models/models.dart';
+import 'package:van_lich/screens/explore/widgets/scrollingCollection.dart';
+import 'package:van_lich/screens/explore/widgets/scrollingItems.dart';
 
 
 class ExploreScreen extends StatefulWidget {
@@ -120,20 +127,22 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 20,),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: <Widget> [
-                    trending('assets/images/trung-nhi.jpeg', 'The quick brown fox jumps over the lazy dog'),
-                    trending('assets/images/ong-nam-cheo.jpeg','The quick brown fox jumps over choi ma may'),
-                    trending('assets/images/trung-nhi.jpeg', 'The quick brown fox jumps over an ba to com'),
-                    trending('assets/images/ong-nam-cheo.jpeg', 'Hello'),
+              SizedBox(height: 15,),
+              // SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child: Row(
+              //     children: <Widget> [
+              //       trending('assets/images/trung-nhi.jpeg', 'The quick brown fox jumps over the lazy dog'),
+              //       trending('assets/images/ong-nam-cheo.jpeg','The quick brown fox jumps over choi ma may'),
+              //       trending('assets/images/trung-nhi.jpeg', 'The quick brown fox jumps over an ba to com'),
+              //       trending('assets/images/ong-nam-cheo.jpeg', 'Hello'),
+              //
+              //     ],
+              //
+              //   ),
+              // ),
 
-                  ],
-
-                ),
-              ),
+              scrollingItems(user: currentUsers, content: currentContent),
 
               SizedBox(height: 20,),
 
@@ -206,19 +215,20 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
               SizedBox(height: 15,),
 
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: <Widget> [
-                    StackedImages(),
-                    StackedImages(),
-                    StackedImages(),
-
-
-                  ],
-
-                ),
-              ),
+              // SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child: Row(
+              //     children: <Widget> [
+              //       StackedImages(),
+              //       StackedImages(),
+              //       StackedImages(),
+              //
+              //
+              //     ],
+              //
+              //   ),
+              // ),
+              scrollingCollection(user: currentUsers, collection: listOfCollection)
 
 
 
@@ -235,83 +245,84 @@ class _ExploreScreenState extends State<ExploreScreen> {
   }
 }
 
-Widget trending(String imageSource, String headerText) {
-  return Padding(
-    padding: EdgeInsets.only(right: 15),
-    child: GestureDetector(
-      onTap: () {
-        // Handle tap event on the trending widget
-        print('Trending widget tapped');
-      },
-        child: Container(
-          height: 150,
-          width: 110,
 
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-
-              Image(
-                image: AssetImage(
-                    imageSource
-                ),
-                fit: BoxFit.cover,
-
-              ),
-
-              //Gradient overlay
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [
-                      Colors.black.withOpacity(0.8),
-                      // Colors.black87.withOpacity(0.6),
-
-                      Colors.black12.withOpacity(0.2),
-                    ],
-                  ),
-                ),
-              ),
-
-              //Noi dung trong trending card
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 8, top: 10, right: 5),
-                        child: Text(
-                          headerText,
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            height: 1,
-                            overflow: TextOverflow.fade,
-                          ),
-                          maxLines: 4,
-                          textAlign: TextAlign.left,
-                        ),
-                      )
-
-                  ),
-
-                ],
-              ),
-            ],
-          ),
-
-        )
-    )
-
-
-
-  );
-
-}
-
-
+// Widget trending(String imageSource, String headerText) {
+//   return Padding(
+//     padding: EdgeInsets.only(right: 15),
+//     child: GestureDetector(
+//       onTap: () {
+//         // Handle tap event on the trending widget
+//         print('Trending widget tapped');
+//       },
+//         child: Container(
+//           height: 150,
+//           width: 110,
+//
+//           child: Stack(
+//             fit: StackFit.expand,
+//             children: <Widget>[
+//
+//               Image(
+//                 image: AssetImage(
+//                     imageSource
+//                 ),
+//                 fit: BoxFit.cover,
+//
+//               ),
+//
+//               //Gradient overlay
+//               Container(
+//                 decoration: BoxDecoration(
+//                   gradient: LinearGradient(
+//                     begin: Alignment.bottomCenter,
+//                     end: Alignment.topCenter,
+//                     colors: [
+//                       Colors.black.withOpacity(0.8),
+//                       // Colors.black87.withOpacity(0.6),
+//
+//                       Colors.black12.withOpacity(0.2),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//
+//               //Noi dung trong trending card
+//               Row(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: <Widget>[
+//                   Expanded(
+//                       child: Padding(
+//                         padding: EdgeInsets.only(left: 8, top: 10, right: 5),
+//                         child: Text(
+//                           headerText,
+//                           style: TextStyle(
+//                             fontSize: 15,
+//                             color: Colors.white,
+//                             height: 1,
+//                             overflow: TextOverflow.fade,
+//                           ),
+//                           maxLines: 4,
+//                           textAlign: TextAlign.left,
+//                         ),
+//                       )
+//
+//                   ),
+//
+//                 ],
+//               ),
+//             ],
+//           ),
+//
+//         )
+//     )
+//
+//
+//
+//   );
+//
+// }
+//
+//
 
 
 const IMAGES = ["trung-nhi.jpeg", "ong-nam-cheo.jpeg", "trung-nhi.jpeg", "ong-nam-cheo.jpeg"];

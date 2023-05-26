@@ -1,5 +1,23 @@
 import 'package:json_annotation/json_annotation.dart';
 
+// string? id,
+//     bool debug,
+// string name,
+//     string? userID,
+// string mainGraphicUrl,
+//     int nOfStars,
+// int nOfFavs,
+//     int nOfComments,
+// int nOfShares,
+//     string caption,
+// string description,
+//     string content,
+// string type,
+//     DateTime createDate,
+// List<string> catagories,
+//     List<string> graphics)
+
+
 part 'content.g.dart';
 @JsonSerializable()
 class Content {
@@ -22,7 +40,8 @@ class Content {
 
   Content({
     required this.id,
-    required this.debug,
+    //Tam thoi de false
+    this.debug = false,
     required this.name,
     required this.userID,
     required this.mainGraphicUrl,
