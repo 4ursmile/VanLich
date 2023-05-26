@@ -8,7 +8,7 @@ namespace VanLichAPI.Controllers;
 
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 public class ContentController:ControllerBase
 {
     private readonly ContentServices _contentServices;

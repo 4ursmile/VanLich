@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace VanLichAPI.Controllers;
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 public class CollectionController : ControllerBase
 {
     private readonly CollectionServices _collectionServices;

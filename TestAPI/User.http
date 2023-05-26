@@ -1,0 +1,20 @@
+@id=646f6cdd739418a6bc8191d1
+
+GET http://localhost:5066/api/v1/user
+```
+###
+
+PUT http://localhost:5066/api/v1/user/{{id}} 
+Content-Type: application/json
+
+{
+  "name": "admin233",
+  "email": "21521109@gm.uit.edu.vn",
+  "password": "hashfunction",
+  "avatarUrl": "http",
+  "contentIds": [],
+  "commentIds": [],
+  "favContentIds": [],
+  "starContentIds": [],
+  "saveContentIds": []
+}

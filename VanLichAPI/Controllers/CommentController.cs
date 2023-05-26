@@ -5,7 +5,7 @@ using VanLichAPI.Services;
 using VanLichAPI.Models.HTTPBinding;
 namespace VanLichAPI.Controllers;
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 public class CommentController : ControllerBase
 {
     private readonly CommentServices _commentServices;
