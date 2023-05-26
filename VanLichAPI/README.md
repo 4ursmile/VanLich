@@ -33,11 +33,11 @@ What need to do with this Repo?
 > Denote that http://localhost:5066 just an example.
 #### GET
 > Only GET method support query
-``` JS
+``` http
 GET http://localhost:5066/api/v1/<yourmodel>?
 ```
 *With Id*
-``` JS
+``` http
 GET http://localhost:5066/api/v1/<yourmodel>/debug/id
 ```
 > Query all have to elemet *skip* and *limit* to
@@ -60,31 +60,31 @@ Result example will have inspecific section.
 > **Denote** that there are custom controls base on your model, but almost model support query in GET method.
 
 #### POST
-``` JS
+``` http
 POST http://localhost:5066/api/v1/<yourmodel>/id
-Content-Type: application/json
+Content-Type: application/httpon
 
 {
     // data here
 }
 ```
 #### PUT
-``` JS
+``` http
 PUT http://localhost:5066/api/v1/<yourmodel>/id
-Content-Type: application/json
+Content-Type: application/httpon
 
 {
     // data here
 }
 ```
 #### DELETE
-``` JS
+``` http
 DELETE http://localhost:5066/api/v1/<yourmodel>/id
 ```
 ----
 ## **Health check**
 #### GET
-``` JS
+``` http
 GET http://localhost:5066/api/v1/health
 ```
 > If you get HTTP status code 200 OK, it's mean that server is healthy. 
