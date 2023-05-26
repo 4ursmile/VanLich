@@ -39,6 +39,10 @@ What need to do with this Repo?
 ``` JS
 GET http://localhost:5066/api/v1/<yourmodel>?
 ```
+*With Id*
+``` JS
+GET http://localhost:5066/api/v1/<yourmodel>/debug/id
+```
 #### POST
 ``` JS
 POST http://localhost:5066/api/v1/<yourmodel>/id

@@ -36,6 +36,29 @@ What need to do with this Repo?
 ``` JS
 GET http://localhost:5066/api/v1/<yourmodel>?
 ```
+*With Id*
+``` JS
+GET http://localhost:5066/api/v1/<yourmodel>/debug/id
+```
+> Query all have to elemet *skip* and *limit* to
+> * **skip**: Skip "skip" elemet in collection
+> * **limit**: Limit "limit" elemet in collection
+> 
+> You can pass either or none.
+
+*Example*
+``` http
+GET http://localhost:5066/api/v1/<yourmodel>?skip=2&limit=5
+###
+GET http://localhost:5066/api/v1/<yourmodel>?limit=5
+###
+GET http://localhost:5066/api/v1/<yourmodel>?skip=2
+###
+GET http://localhost:5066/api/v1/<yourmodel>?
+```
+Result example will have inspecific section.
+> **Denote** that there are custom controls base on your model, but almost model support query in GET method.
+
 #### POST
 ``` JS
 POST http://localhost:5066/api/v1/<yourmodel>/id
@@ -66,7 +89,7 @@ GET http://localhost:5066/api/v1/health
 ```
 > If you get HTTP status code 200 OK, it's mean that server is healthy. 
 >
-> Return a string.
+> Return a string contains "OK".
 ----
 ## **Content**
 
