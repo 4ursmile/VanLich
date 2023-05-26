@@ -44,9 +44,12 @@ namespace VanLichAPI.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id {get; set;}
-        public bool debug {get; set;}
+        public bool debug {get; set;} = false;
         [BsonElement("name")]
         public string name {get; set;}
+        [BsonElement("userID")]
+        [JsonPropertyName("userID")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string? userID {get; set;}
         public string mainGraphicUrl {get; set;}
         public int nOfStars {get; set;}

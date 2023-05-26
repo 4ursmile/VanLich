@@ -39,17 +39,17 @@ namespace VanLichAPI.Models
         [BsonElement("contentIds")]
         [JsonPropertyName("contentIds")]
         public List<string?>contentIds {get; set;}
-        [BsonElement("contentIds")]
-        [JsonPropertyName("contentIds")]
+        [BsonElement("commentIds")]
+        [JsonPropertyName("commentIds")]
         public List<string?>commentIds {get; set;}
-        [BsonElement("contentIds")]
-        [JsonPropertyName("contentIds")]
+        [BsonElement("favContentIds")]
+        [JsonPropertyName("favContentIds")]
         public List<string?>favContentIds {get; set;}
-        [BsonElement("contentIds")]
-        [JsonPropertyName("contentIds")]
+        [BsonElement("starContentIds")]
+        [JsonPropertyName("starContentIds")]
         public List<string?>starContentIds {get; set;}
-        [BsonElement("contentIds")]
-        [JsonPropertyName("contentIds")]
+        [BsonElement("saveContentIds")]
+        [JsonPropertyName("saveContentIds")]
         public List<string?>saveContentIds {get; set;}
         
     }

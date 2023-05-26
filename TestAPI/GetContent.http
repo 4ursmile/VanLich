@@ -1,0 +1,67 @@
+@id=64704ecc79725509dc2e188e
+@type=story
+###
+GET http://localhost:5066/api/health
+###
+
+
+GET http://localhost:5066/api/content/search/?name=em&skip=0&limit=1
+```
+
+###
+
+POST http://localhost:5066/api/content
+Content-Type: application/json
+
+{
+    "debug": false,
+    "name": "SchemeHolding2",
+    "userID": null,
+    "mainGraphicUrl": "hold",
+    "nOfStars": 1,
+    "nOfFavs": 1,
+    "nOfComments": 1,
+    "nOfShares": 1,
+    "caption": "Hold",
+    "description": "Hold",
+    "content": "Content Holding",
+    "type": "story",
+    "createDate": "2023-05-25T14:01:38.594Z",
+    "catagories": [
+      "story",
+      "batrieu",
+      "lichsu"
+    ],
+    "graphics": []
+}
+
+###
+
+DELETE http://localhost:5066/api/content/{{id}}
+
+###
+
+PUT  http://localhost:5066/api/content/{{id}}
+Content-Type: application/json
+
+{
+    "debug": false,
+    "name": "SchemeHolding",
+    "userID": "hold",
+    "mainGraphicUrl": "hold",
+    "nOfStars": 1,
+    "nOfFavs": 1,
+    "nOfComments": 1,
+    "nOfShares": 1,
+    "caption": "Hold",
+    "description": "Hold",
+    "content": "Content Holding",
+    "type": "story",
+    "createDate": "2023-05-25T14:01:38.594Z",
+    "catagories": [
+      "story",
+      "batrieu",
+      "lichsu"
+    ],
+    "graphics": []
+}
