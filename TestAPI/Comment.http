@@ -1,10 +1,10 @@
 @id = 646f6f46739418a6bc8191d3
 @contentid = 5f9f6f46739418a6bc8191d3
-GET http://localhost:5066/api/comment/content/?skip=0&limit=10
+GET http://localhost:5066/api/v1/comment/content/?skip=0&limit=10
 
 ###
 
-POST  http://localhost:5066/api/comment/debug/
+POST  http://localhost:5066/api/v1/comment/debug/
 Content-Type: application/json
 
 {

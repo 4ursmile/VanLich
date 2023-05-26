@@ -1,14 +1,14 @@
 
 
-GET http://localhost:5066/api/health
+GET http://localhost:5066/api/v1/health
 
 ###
 
-GET http://localhost:5066/api/collection/?skip=0&limit=3
+GET http://localhost:5066/api/v1/collection/?skip=0&limit=3
 
 ###
 
-POST http://localhost:5066/api/collection/
+POST http://localhost:5066/api/v1/collection/
 Content-Type: application/json
 
 {

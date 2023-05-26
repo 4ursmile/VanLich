@@ -1,16 +1,16 @@
 @id=64704ecc79725509dc2e188e
 @type=story
 ###
-GET http://localhost:5066/api/health
+GET http://localhost:5066/api/v1/v1/health
 ###
 
 
-GET http://localhost:5066/api/content/search/?name=em&skip=0&limit=1
+GET http://localhost:5066/api/v1/content/search/?name=em&skip=0&limit=1
 ```
 
 ###
 
-POST http://localhost:5066/api/content
+POST http://localhost:5066/api/v1/content
 Content-Type: application/json
 
 {
@@ -37,11 +37,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:5066/api/content/{{id}}
+DELETE http://localhost:5066/api/v1/content/{{id}}
 
 ###
 
-PUT  http://localhost:5066/api/content/{{id}}
+PUT  http://localhost:5066/api/v1/content/{{id}}
 Content-Type: application/json
 
 {
