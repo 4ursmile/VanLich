@@ -199,7 +199,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 scale: 0.9,
                 threshold: 30,
                 cardsCount: cards.length,
-                cardBuilder: (context, index) => cards[index],
+                cardBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>
+                          ContentDetailScreen(id: index.toString())),
+                    );
+                  },
+                  child: cards[index],
+                ),
               ),
             ),
             const SizedBox(
@@ -231,6 +240,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-
