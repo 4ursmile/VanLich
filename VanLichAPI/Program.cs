@@ -21,6 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddScoped<CommentServices>();
     builder.Services.AddScoped<CollectionServices>();
+    builder.Services.AddScoped<UserServices>();
 }
 // Add services to the container.
 

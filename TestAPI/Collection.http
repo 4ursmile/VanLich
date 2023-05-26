@@ -4,7 +4,7 @@ GET http://localhost:5066/api/health
 
 ###
 
-GET http://localhost:5066/api/collection/?skip=0&limit=1
+GET http://localhost:5066/api/collection/?skip=0&limit=3
 
 ###
 
@@ -13,8 +13,9 @@ Content-Type: application/json
 
 {
     "name": "Hold",
-    "userId": Null,
+    "userId": null,
     "description": "this is collection 2",
     "thumbnail": "this is link 3",
-    "contentIds": []
+    "contentIds": [],
+    "createdDate": "2020-01-01T00:00:00.000Z"
 }

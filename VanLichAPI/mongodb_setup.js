@@ -9,3 +9,5 @@ db.Content.insertOne({ name: "SchemeHolding", debug: true, useID:"hold", mainGra
 
  db.createCollection("Comment")
 db.Comment.insertOne({ userId: "admin", commentId: "hold", text: "Comment", nOfLikes: 1, nOfChildComments: 0, parentCommentIds: "holdID", createDate: new Date() })
+
+db.createCollection("Collection")

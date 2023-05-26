@@ -40,6 +40,9 @@ namespace VanLichAPI.Models
         [JsonPropertyName("contentIds")]
         [BsonRepresentation(BsonType.ObjectId)]
         public List<string?> contentIds {get; set;}
+        [BsonElement("createdDate")]
+        [JsonPropertyName("createdDate")]
+        public DateTime CreatedDate {get; set;} = DateTime.Now;
         
     }
 }
