@@ -7,28 +7,45 @@ part of 'content.dart';
 // **************************************************************************
 
 Content _$ContentFromJson(Map<String, dynamic> json) => Content(
-      contentId: json['contentId'] as String,
-      userId: json['userId'] as String,
-      contentName: json['contentName'] as String,
+      id: json['id'] as String,
+      debug: json['debug'] as bool,
+      name: json['name'] as String,
+      userID: json['userID'] as String,
+      mainGraphicUrl: json['mainGraphicUrl'] as String,
+      nOfStars: json['nOfStars'] as int? ?? 0,
+      nOfShares: json['nOfShares'] as int? ?? 0,
+      nOfComments: json['nOfComments'] as int? ?? 0,
+      nOfFavs: json['nOfFavs'] as int? ?? 0,
       caption: json['caption'] as String,
-      description: json['description'] as String,
-      url: json['url'] as String,
-      numOfFavs: json['numOfFavs'] as int? ?? 0,
-      numOfCmts: json['numOfCmts'] as int? ?? 0,
-      numOfSaved: json['numOfSaved'] as int? ?? 0,
-      numOfShared: json['numOfShared'] as int? ?? 0,
-    )..numOfStars = json['numOfStars'] as int;
+      description: json['description'] as String?,
+      content: json['content'] as String,
+      type: json['type'] as String?,
+      createDate: DateTime.parse(json['createDate'] as String),
+      categories: (json['categories'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      graphics: (json['graphics'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+    );
 
 Map<String, dynamic> _$ContentToJson(Content instance) => <String, dynamic>{
-      'contentId': instance.contentId,
-      'userId': instance.userId,
-      'contentName': instance.contentName,
+      'id': instance.id,
+      'debug': instance.debug,
+      'name': instance.name,
+      'userID': instance.userID,
+      'mainGraphicUrl': instance.mainGraphicUrl,
+      'nOfStars': instance.nOfStars,
+      'nOfFavs': instance.nOfFavs,
+      'nOfComments': instance.nOfComments,
+      'nOfShares': instance.nOfShares,
       'caption': instance.caption,
       'description': instance.description,
-      'url': instance.url,
-      'numOfFavs': instance.numOfFavs,
-      'numOfStars': instance.numOfStars,
-      'numOfCmts': instance.numOfCmts,
-      'numOfSaved': instance.numOfSaved,
-      'numOfShared': instance.numOfShared,
+      'content': instance.content,
+      'type': instance.type,
+      'createDate': instance.createDate.toIso8601String(),
+      'categories': instance.categories,
+      'graphics': instance.graphics,
     };

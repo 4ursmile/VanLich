@@ -3,23 +3,23 @@ import 'package:json_annotation/json_annotation.dart';
 part 'comment.g.dart';
 @JsonSerializable()
 class Comment {
-  String userId = '';
-  String commentId = '';
-  String contentId = '';
-  String text = '';
-  int likes = 0;
-  DateTime? dateTime;
-  Map<String, String>? rootCmt;
+  String id;
+  String userID;
+  String contentID;
+  String? text;
+  String? parentCommentIds;
+  DateTime createDate;
+  int nOfLikes = 0;
+  int nOfChildComments = 0;
 
   Comment({
-    required this.userId,
-    required this.commentId,
-    required this.contentId,
-    required this.text,
-    this.likes = 0,
-    this.dateTime,
-    this.rootCmt
-
+    required this.userID,
+    required this.id,
+    required this.contentID,
+    this.text,
+    this.nOfLikes = 0,
+    required this.createDate,
+    this.parentCommentIds
 });
   factory Comment.fromJson(Map<String, dynamic> json) => _$CommentFromJson(json);
 
