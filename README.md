@@ -1,8 +1,10 @@
 
-# **Van Lich Mobile App**
+# **<p style="text-align: center;">Van Lich Mobile App</p>**
+
 ---
-# **VANLICH API**
+## **VANLICH API**
 ---
+
 ## **Note**
 First of all, this is some note for this SERVER.
 - This server was build for short context, so it's have no enough API for a real application.
