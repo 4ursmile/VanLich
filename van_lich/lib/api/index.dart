@@ -1,20 +1,81 @@
 import 'package:dio/dio.dart';
+import 'package:van_lich/models/collection.dart';
+
+import '../models/content.dart';
 
 class API {
   static var dio = Dio(
-    BaseOptions(baseUrl: 'https://tdt-flutter-server.up.railway.app/api/'),
+    BaseOptions(baseUrl: 'http://localhost:5066/api/v1/'),
   );
 
-  Future googleLogin(String idToken) async {
+  static Future<List<Content>> getListOfSuggestionContents({int skip = 1, int limit = 2}) async {
     try {
-      var response =
-          await dio.post('/auth/login/google', data: {'idToken': idToken});
-
-      return response;
-    } catch (error) {
-      throw ("Some thing went wrong!");
+      final response = await dio.get(
+          'content/suggest/?skip=$skip&limit=$limit');
+      List<Content> contents = response.data.map((e) => Content.fromJson(e));
+      return contents;
+    } catch(e) {
+      if (e is DioError) {
+        throw "Some thing went wrong!";
+      }
+      throw "Some thing went wrong!";
     }
   }
+
+  static Future<List<Content>> getListOfContents({int skip = 1, int limit = 2}) async {
+    try {
+      final response = await dio.get('content/?skip=$skip&limit=$limit');
+      List<Content> contents = response.data.map((e) => Content.fromJson(e));
+      return contents;
+    } catch(e) {
+      if (e is DioError) {
+        throw "Some thing went wrong!";
+      }
+      throw "Some thing went wrong!";
+    }
+  }
+
+  static Future<List<Content>> searchContent({String name = '',int skip = 1, int limit = 2}) async {
+    try {
+      final response = await dio.get(
+          'content/search/?name=$name&skip=$skip&limit=$limit');
+      List<Content> contents = response.data.map((e) => Content.fromJson(e));
+      return contents;
+    } catch(e) {
+      if (e is DioError) {
+        throw "Some thing went wrong!";
+      }
+      throw "Some thing went wrong!";
+    }
+  }
+
+  static Future<List<Collection>> getCollection({String userId = '',int skip = 1, int limit = 2}) async {
+    try {
+      final response = await dio.get(
+          'content/collection/?collectionid=$userId&skip=$skip&limit=$limit');
+      List<Collection> collection = response.data.map((e) => Content.fromJson(e));
+      return collection;
+    } catch(e) {
+      if (e is DioError) {
+        throw "Some thing went wrong!";
+      }
+      throw "Some thing went wrong!";
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   Future signUp({
     required String username,
