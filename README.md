@@ -2,11 +2,11 @@
 <h1 style="text-align: center;"><b>Van Lich Mobile App</b></h>
 
 <p align="middle">
-  <img src="https://w7.pngwing.com/pngs/537/866/png-transparent-flutter-hd-logo.png" margin="5%" width="15%" />
+  <img src="https://static-00.iconduck.com/assets.00/flutter-plain-icon-827x1024-okfp25wt.png" margin="5%" width="15%" />
   <img src="https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png" margin="5%" width="15%" />
   <img src="https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Image-HD.png" margin="5%" width="15%" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png" margin="5%" width="15%" />
-  <img src="https://assets.stickpng.com/images/5848104fcef1014c0b5e4950.png" margin="5%" width="15%" />
+  <img src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-mysql-and-moodle-elearningworld-5.png" margin="5%" width="15%" />
 </p>
 
 ---
