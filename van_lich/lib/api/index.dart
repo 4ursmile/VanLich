@@ -2,18 +2,12 @@ import 'package:dio/dio.dart';
 
 class API {
   static var dio = Dio(
-    BaseOptions(baseUrl: 'https://tdt-flutter-server.up.railway.app/api/'),
+    BaseOptions(baseUrl: 'http://localhost:5066/api/v1/'),
   );
 
-  Future googleLogin(String idToken) async {
-    try {
-      var response =
-          await dio.post('/auth/login/google', data: {'idToken': idToken});
-
-      return response;
-    } catch (error) {
-      throw ("Some thing went wrong!");
-    }
+  Future getListOfContents({int skip = 1, int limit = 2}) async {
+    final response = await dio.get('content/?skip=$skip&limit=$limit');
+    
   }
 
   Future signUp({
