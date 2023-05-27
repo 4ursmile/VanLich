@@ -46,7 +46,7 @@ public class CollectionServices : IModelServices<Collection>
     {
         if (name == null)
             return await GetAllAsync(skip, limit);
-        var filter = new BsonDocument{ { "name", new BsonDocument { { "$regex", name } } } };
+        var filter = new BsonDocument{ {"name", new BsonRegularExpression(name, "i")} };
         var collectionList = await _collectionCollection.
                                                     Find(filter).
                                                     Skip(skip).

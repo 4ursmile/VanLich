@@ -1,13 +1,16 @@
 
-
+@id=6470caf69a419a29f22cb867
 GET http://localhost:5066/api/v1/health
 
 ###
-
-GET http://localhost:5066/api/v1/collection/?skip=0&limit=3
-
+GET http://localhost:5066/api/v1/collection/debug/{{id}}
 ###
-
+GET http://localhost:5066/api/v1/collection/?skip=0&limit=3
+###
+GET http://localhost:5066/api/v1/collection/search/?name=HE
+###
+GET http://localhost:5066/api/v1/collection/suggest/?limit=2
+###
 POST http://localhost:5066/api/v1/collection/
 Content-Type: application/json
 

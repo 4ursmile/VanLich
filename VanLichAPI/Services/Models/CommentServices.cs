@@ -17,11 +17,11 @@ public class CommentServices : IModelServices<Comment>
     {
         await _dbServices.CommentCollection.InsertOneAsync(comment);
         await _contentServices.IncreaseCommentAsync(comment.contentId);
-        if (comment.parentCommentIds != null)
+        if (comment.parentCommentId != null)
         {
             // increase nOfChildComments of parent comment
             await _dbServices.CommentCollection.UpdateOneAsync(
-                c => c.contentId == comment.contentId & c.Id == comment.parentCommentIds, 
+                c => c.contentId == comment.contentId & c.Id == comment.parentCommentId, 
                 Builders<Comment>.Update.Inc(c => c.nOfChildComments, 1));
 
         }
@@ -48,10 +48,10 @@ public class CommentServices : IModelServices<Comment>
     public async Task<List<Comment>> GetCommentsAsync(string? contentID, string? parentCommentId, int skip=0, int limit=10, bool order = false)
     {
         if (contentID == null && parentCommentId != null && !order)
-            return await _dbServices.CommentCollection.Find(c => c.parentCommentIds == parentCommentId).Skip(skip).Limit(limit).ToListAsync();
+            return await _dbServices.CommentCollection.Find(c => c.parentCommentId == parentCommentId).Skip(skip).Limit(limit).ToListAsync();
         else if (contentID == null && parentCommentId != null)
             return await _dbServices.CommentCollection.
-                                        Find(c => c.parentCommentIds == parentCommentId).
+                                        Find(c => c.parentCommentId == parentCommentId).
                                         SortByDescending(c=> c.nOfLikes).
                                         Skip(skip).Limit(limit).
                                         ToListAsync();
@@ -59,12 +59,12 @@ public class CommentServices : IModelServices<Comment>
             return await GetAllAsync(skip, limit);
         if (!order)
             return await _dbServices.CommentCollection.
-                                        Find(c => c.contentId == contentID && c.parentCommentIds == parentCommentId).
+                                        Find(c => c.contentId == contentID && c.parentCommentId == parentCommentId).
                                         Skip(skip).Limit(limit).
                                         ToListAsync();
         else
             return await _dbServices.CommentCollection.
-                                        Find(c => c.contentId == contentID && c.parentCommentIds == parentCommentId).
+                                        Find(c => c.contentId == contentID && c.parentCommentId == parentCommentId).
                                         SortByDescending(c => c.nOfLikes).
                                         Skip(skip).Limit(limit).
                                         ToListAsync();

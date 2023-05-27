@@ -8,7 +8,7 @@ namespace VanLichAPI.Models.HTTPBinding
     public class CommentBinder : Related
     {
         public string? ContentId { get; set; }
-        public string? ParentCommentIds { get; set; }
+        public string? ParentCommentId { get; set; }
         public bool order { get; set; }
     }
 }

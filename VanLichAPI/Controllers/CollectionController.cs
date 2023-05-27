@@ -77,9 +77,9 @@ public class CollectionController : ControllerBase
         return collections;
     }
     [HttpGet] [Route("suggest")]
-    public async Task<ActionResult<List<Collection>>> GetSuggestAsync([FromQuery]  Related re)
+    public async Task<ActionResult<List<Collection>>> GetSuggestAsync([FromQuery]  int limit = 5)
     {
-        var collections = await _collectionServices.GetSuggestAsync(re.Limit);
+        var collections = await _collectionServices.GetSuggestAsync(limit);
         if (collections == null)
         {
             return NotFound();

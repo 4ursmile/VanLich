@@ -60,7 +60,7 @@ public class CommentController : ControllerBase
     [HttpGet] [Route("content")]
     public async Task<ActionResult<List<Comment>>> GetCommentByContentID([FromQuery] CommentBinder cb)
     {
-        var comments = await _commentServices.GetCommentsAsync(cb.ContentId, cb.ParentCommentIds,cb.Skip, cb.Limit, cb.order);
+        var comments = await _commentServices.GetCommentsAsync(cb.ContentId, cb.ParentCommentId,cb.Skip, cb.Limit, cb.order);
         if (comments == null)
         {
             return NotFound();
