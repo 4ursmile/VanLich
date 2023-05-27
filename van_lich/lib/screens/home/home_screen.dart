@@ -103,12 +103,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: SizedBox(
                             child: Stack(
                               children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(contents[index].mainGraphicUrl)),
-                                    borderRadius: BorderRadius.circular(10),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 8.0, left: 11.0, right: 11.0, bottom: 0),
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(contents[index].mainGraphicUrl), fit: BoxFit.cover),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
                                   ),
                                 ),
                                 Positioned.fill(
