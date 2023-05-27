@@ -1,5 +1,5 @@
 
-# **<p style="text-align: center;">Van Lich Mobile App</p>**
+<h1 style="text-align: center;"><b>Van Lich Mobile App</b></h>
 
 ---
 ## **VANLICH API**
