@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:van_lich/screens/explore/explore_screen.dart';
+import 'package:van_lich/screens/profile/profile.dart';
+import 'package:van_lich/screens/post/post.dart';
 import 'package:van_lich/screens/home/home_screen.dart';
 import '../setting/setting_screen.dart';
 import '../home/home_screen.dart';
@@ -10,7 +12,8 @@ class Pages extends StatefulWidget {
   final List<Widget> tabs = [
      HomeScreen(),
      ExploreScreen(),
-     HomeScreen()
+    // PostScreen(),
+     ProfileScreen()
   ];
 
   @override
