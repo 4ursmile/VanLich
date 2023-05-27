@@ -1,16 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:van_lich/models/collection.dart';
+import 'package:van_lich/screens/explore/widgets/collectionView.dart';
 import '../../../models/user.dart';
 
 class scrollingCollection extends StatelessWidget {
-  final List<User>? user;
-  final List<Collection>? collection;
+  final List<Collection> collection;
 
   const scrollingCollection({
     Key? key,
-    @required this.user,
-    @required this.collection
+    required this.collection
   }) : super(key: key);
 
   @override
@@ -26,22 +25,22 @@ class scrollingCollection extends StatelessWidget {
           scrollDirection: Axis.horizontal,
 
           //Co the null
-          itemCount: collection?.length,
+          itemCount: collection.length,
 
           itemBuilder: (BuildContext context, int index) {
             // final User? indexUser = user?[index];
-            final Collection? indexContent = collection?[index];
-            User? postUser;
-            //Kiem tra collection do ai dang
-            for (var u in user!) {
-              if (u.id == indexContent!.userId) {
-                postUser = u;
-                break;
-              }
-            }
+            final Collection indexContent = collection[index];
+            // User? postUser;
+            // //Kiem tra collection do ai dang
+            // for (var u in user) {
+            //   if (u.id == indexContent!.userId) {
+            //     postUser = u;
+            //     break;
+            //   }
+            // }
             //Truyen vao collection va nguoi dang
             return scrollItemCollection(
-              user: postUser,
+              // user: postUser,
               collection: indexContent,
             );
           }
@@ -53,12 +52,10 @@ class scrollingCollection extends StatelessWidget {
 
 
 class scrollItemCollection extends StatelessWidget {
-  final User? user;
-  final Collection? collection;
+  final Collection collection;
   const scrollItemCollection ({
     Key? key,
-    this.user,
-    this.collection,
+    required this.collection,
   }) : super(key: key);
 
   @override
@@ -67,12 +64,13 @@ class scrollItemCollection extends StatelessWidget {
       padding: const EdgeInsets.only(right: 15),
       child: GestureDetector(
         onTap: () {
-
-          // TODO
-          // Handle tap event on the trending widget
-          print('Trending widget tapped');
-
-
+          if (collection != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>
+                  collectionView(collection: collection,)),
+            );
+          }
 
         },
         child: ClipRRect(
