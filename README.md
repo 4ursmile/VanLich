@@ -86,7 +86,10 @@ What need to do with this Repo?
 > - [x] replate configure with your server
 > - [ ] Keep it's origin 
 > - [x] Contact me for auth api
+
 ---
+# **Documentation**
+
 ## Table of content (for Document)
 |Section Name| Method|
 |------------| ---|
@@ -97,8 +100,6 @@ What need to do with this Repo?
 |[Collection](#collection)|GET/POST/PUT/DELETE |
 |[User](#user)|GET/POST/PUT/DELETE |
 ---
----
-# **Documentation**
 
 ## **Basic syntax**
 ----
