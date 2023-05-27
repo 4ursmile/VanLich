@@ -7,6 +7,7 @@ import 'package:van_lich/api/index.dart';
 import 'package:van_lich/screens/content_detail/content_detail_screen.dart';
 
 import '../../components/behavior_button.dart';
+import '../video_player/video_player.dart';
 import '../../models/content.dart';
 import 'components/more_button.dart';
 
