@@ -32,12 +32,14 @@ class scrollingCollection extends StatelessWidget {
             // final User? indexUser = user?[index];
             final Collection? indexContent = collection?[index];
             User? postUser;
+            //Kiem tra collection do ai dang
             for (var u in user!) {
               if (u.id == indexContent!.userId) {
                 postUser = u;
                 break;
               }
             }
+            //Truyen vao collection va nguoi dang
             return scrollItemCollection(
               user: postUser,
               collection: indexContent,
@@ -65,8 +67,13 @@ class scrollItemCollection extends StatelessWidget {
       padding: const EdgeInsets.only(right: 15),
       child: GestureDetector(
         onTap: () {
+
+          // TODO
           // Handle tap event on the trending widget
           print('Trending widget tapped');
+
+
+
         },
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10), // Specify the desired border radius here

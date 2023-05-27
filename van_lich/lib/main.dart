@@ -204,6 +204,7 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:van_lich/screens/content_detail/content_video_screen.dart';
 import 'package:van_lich/screens/pages/pages.dart';
 
 void main() {
