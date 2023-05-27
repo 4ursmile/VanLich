@@ -8,7 +8,7 @@ part of 'content.dart';
 
 Content _$ContentFromJson(Map<String, dynamic> json) => Content(
       id: json['id'] as String,
-      debug: json['debug'] as bool,
+      debug: json['debug'] as bool? ?? false,
       name: json['name'] as String,
       userID: json['userID'] as String,
       mainGraphicUrl: json['mainGraphicUrl'] as String,

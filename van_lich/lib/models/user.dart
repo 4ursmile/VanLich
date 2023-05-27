@@ -1,4 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
+// public User(
+// string? id,
+//     string name,
+// string email,
+//     string password,
+// string avatarUrl,
+//     List<string?> contentIds,
+// List<string?> commentIds,
+//     List<string?> favContentIds,
+// List<string?> starContentIds,
+//     List<string?> saveContentIds)
+
 
 part 'user.g.dart';
 @JsonSerializable()
