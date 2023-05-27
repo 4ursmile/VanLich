@@ -148,7 +148,7 @@ class _TikTokVideoPlayerScreenState extends State<TikTokVideoPlayerScreen>
                 setState(() {
                   _videoPlayerController.pause();
                   _currentVideoIndex = index;
-                  // _initializeVideoPlayer(_currentVideoIndex);
+                  _initializeVideoPlayer(_currentVideoIndex);
                 });
               },
               controller: _swiperController,
