@@ -7,11 +7,8 @@ import 'package:van_lich/api/index.dart';
 import 'package:van_lich/screens/content_detail/content_detail_screen.dart';
 
 import '../../components/behavior_button.dart';
-<<<<<<< HEAD
 import '../video_player/video_player.dart';
-=======
 import '../../models/content.dart';
->>>>>>> 88c961f19561c6c0057b4bdf962aa86eb5c52b79
 import 'components/more_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,137 +19,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List cards = [
-    Hero(
-      tag: '0',
-      child: Material(
-        type: MaterialType.transparency,
-        child: SizedBox(
-          child: Stack(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/ba-trieu-01.png')),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              Positioned.fill(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8.0, left: 11.0, right: 11.0, bottom: 0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [
-                          Colors.black.withOpacity(0.6),
-                          Colors.transparent
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                bottom: 20,
-                left: 30,
-                right: 0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Bà Triệu',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'by Editor',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'following',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Sử thi Bà Triệu Thị Trinh',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    ),
-
-    Hero(
-      tag: '1',
-      child: Material(
-        type: MaterialType.transparency,
-        child: SizedBox(
-          child: Stack(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/ba-trieu-01.png')),
-                  borderRadius: BorderRadius.circular(10),
-                  // boxShadow: const [
-                  //    BoxShadow(
-                  //      spreadRadius: 2, blurRadius: 3.0,
-                  //   )
-                  //
-                  // ]
-                ),
-              ),
-              Positioned.fill(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8.0, left: 11.0, right: 11.0, bottom: 0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [
-                          Colors.black.withOpacity(0.6),
-                          Colors.transparent
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-
-  ];
 
   StreamController indexController = StreamController();
   final CardSwiperController swiperController = CardSwiperController();
@@ -166,13 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) =>
-            //test video
-            TikTokVideoPlayerScreen(
-              videoFilePaths: ['assets/videos/demo1.mp4','assets/videos/demo2.mp4'],
-              videoTitles: ['Đại chiến thành Đa Bang - Phần 1', 'Đại chiến thành Đa Bang - Phần 2'],
-              videoDescriptions: ['Nhà Hồ thành lập', 'Mộc Thạnh xuất hiện'],
-            )),
-            // ContentDetailScreen(id: contents[currentIndex ?? previousIndex].id)),
+            ContentDetailScreen(content: contents[currentIndex ?? previousIndex])),
       );
 
     }
@@ -233,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) =>
-                              ContentDetailScreen(id: index.toString())),
+                              ContentDetailScreen(content: contents[index])),
                         );
                       },
                       child: Hero(
@@ -243,12 +103,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: SizedBox(
                             child: Stack(
                               children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: NetworkImage(contents[index].mainGraphicUrl)),
-                                    borderRadius: BorderRadius.circular(10),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 8.0, left: 11.0, right: 11.0, bottom: 0),
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(contents[index].mainGraphicUrl), fit: BoxFit.cover),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
                                   ),
                                 ),
                                 Positioned.fill(
