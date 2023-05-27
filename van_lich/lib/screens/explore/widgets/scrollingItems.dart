@@ -32,6 +32,7 @@ class scrollingItems extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             // final User? indexUser = user?[index];
             final Content? indexContent = content?[index];
+            //Tim nguoi dang bai do
             User? postUser;
             for (var u in user!) {
               if (u.id == indexContent!.userID) {
@@ -39,6 +40,7 @@ class scrollingItems extends StatelessWidget {
                 break;
               }
             }
+            //Truyen vao nguoi dang va content bai do
             return scrollItem(
               user: postUser,
               content: indexContent,
