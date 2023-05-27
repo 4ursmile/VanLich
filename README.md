@@ -9,15 +9,45 @@
 
 
 <p align="middle">
-  <img src="https://static-00.iconduck.com/assets.00/flutter-plain-icon-827x1024-okfp25wt.png" margin="5%" width="15%" />
-  <img src="https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png" margin="5%" width="15%" />
-  <img src="https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Image-HD.png" margin="5%" width="15%" />
+  <img src="https://static-00.iconduck.com/assets.00/flutter-plain-icon-827x1024-okfp25wt.png" margin="5%" width="12%" />
+  <img src="https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png" margin="5%" width="17%" />
+  <img src="https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Image-HD.png" margin="5%" width="17%" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png" margin="5%" width="15%" />
   <img src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-mysql-and-moodle-elearningworld-5.png" margin="5%" width="15%" />
 </p>
 
 ---
 ## **VANLICH API**
+---
+
+## **Table of content**
+|**Section**| 
+|:---:| 
+|[Members/roles](#members)|
+|[User guide](#user-guide)|
+|[Note](#note)| 
+|[**documentation(*)**](#documentation)|
+---
+## **Members**
+### **Mobile team**
+|**Name**|**Name**|**Name**|
+|:---:|:---: | :---:|
+|[Trần Đình Nhật Trí](https://github.com/cheesepp)|[Nguyễn Trần Việt Anh](https://github.com/anhng195)|[Nguyễn Phước Anh Tuấn](https://github.com/purified-water)|
+
+### **six-star mascot/tester**
+|**Name**|
+|:---:|
+|[Lê Thanh Minh](https://github.com/Kryst4lize)|
+### **Backend teamsss**
+|**Name**|
+|:---:|
+|[Trần Hoàng Bảo Ly](https://github.com/UIT-21521109) (designer part time)|
+
+<h2 align="middle">Our mood now</h2 >
+<p align="middle">
+<img src="https://thumbs.gfycat.com/FreePiercingHamster-max-1mb.gif" alt= “Ly-mood-now” width="50%" >
+</p>
+
 ---
 ## **User guide**
 You need to install docker [Here](https://docs.docker.com/desktop/)
@@ -33,7 +63,7 @@ git version
 git clone https://github.com/UIT-21521109/VanLich.git
 cd VanLichAPI .
 ```
-> read **note** before start
+> read [**note**](#note) before start.
 ```console
 docker build -t vanlichapi .
 ```
@@ -41,7 +71,7 @@ Finally.
 ```console
 docker run -d -p 8080:80 --name vanlichcontainer vanlichapi .
 ```
-That's all
+That's all.
 
 ## **Note**
 First of all, this is some note for this SERVER.
@@ -60,12 +90,12 @@ What need to do with this Repo?
 ## Table of content (for Document)
 |Section Name| Method|
 |------------| ---|
-|[Basic Syntax](#basic-syntax)|GET / POST / PUT / DELETE |
+|[Basic Syntax](#basic-syntax)|GET/POST/PUT/DELETE |
 |[For healt check](#health-check)| GET|
-|[**Content(*)**](#content)|GET / POST / PUT / DELETE |
-|[Comment](#comment)|GET / POST / PUT / DELETE |
-|[Collection](#collection)|GET / POST / PUT / DELETE |
-|[User](#user)|GET / POST / PUT / DELETE |
+|[**Content(*)**](#content)|GET/POST/PUT/DELETE |
+|[Comment](#comment)|GET/POST/PUT/DELETE |
+|[Collection](#collection)|GET/POST/PUT/DELETE |
+|[User](#user)|GET/POST/PUT/DELETE |
 ---
 ---
 # **Documentation**

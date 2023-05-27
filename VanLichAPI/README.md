@@ -19,12 +19,12 @@
 ## **User guide**
 You need install docker [Here](https://docs.docker.com/desktop/)
 Run follow command:
-```shell
+```bash
 docker build -t vanlichapi .
 ```
 
-```shell
-dotnet run
+```bash
+docker run -d -p 8080:80 --name vanlichcontainer vanlichapi
 ```
 That's all
 
