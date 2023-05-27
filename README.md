@@ -20,21 +20,33 @@
 ## **VANLICH API**
 ---
 ## **User guide**
-You need install docker [Here](https://docs.docker.com/desktop/)
-Run follow command:
-```bash
+You need to install docker [Here](https://docs.docker.com/desktop/)
+
+Run following command:
+install git if you don't have before
+```console
+sudo apt-get update
+sudo apt-get install git-all
+git version
+```
+```console
+git clone https://github.com/UIT-21521109/VanLich.git
+cd VanLichAPI .
+```
+> read **note** before start
+```console
 docker build -t vanlichapi .
 ```
-
-```bash
-docker run -d -p 8080:80 --name vanlichcontainer vanlichapi
+Finally.
+```console
+docker run -d -p 8080:80 --name vanlichcontainer vanlichapi .
 ```
 That's all
 
 ## **Note**
 First of all, this is some note for this SERVER.
 - This server was build for short context, so it's have no enough API for a real application.
-- This repo use local mongodb and localhost, so instruction is going to follow localhost. You need to build your own server, or contact me to get auth api key.
+- This repo use local mongodb and localhost, so instruction is going to follow localhost. You need to build your own server, or contact me to get auth api key. (a cloud version)
 - Need more time to test.
 - THIS IS RESTful API.
 
