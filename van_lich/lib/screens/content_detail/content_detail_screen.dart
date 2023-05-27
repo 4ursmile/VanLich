@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:van_lich/components/behavior_button.dart';
 
+import '../../models/content.dart';
+
 class ContentDetailScreen extends StatefulWidget {
-  ContentDetailScreen({Key? key, required this.id}) : super(key: key);
-  String id;
+  ContentDetailScreen({Key? key, required this.content}) : super(key: key);
+  Content content;
 
   @override
   State<ContentDetailScreen> createState() => _ContentDetailScreenState();
@@ -45,12 +47,12 @@ class _ContentDetailScreenState extends State<ContentDetailScreen> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Hero(
-          tag: widget.id,
+          tag: widget.content.id,
           child: Material(
             type: MaterialType.transparency,
             child: SlidingUpPanel(
               body: Image(
-                image: AssetImage('assets/images/ba-trieu-01.png'),
+                image: AssetImage(widget.content.mainGraphicUrl),
                 fit: BoxFit.cover,
               ),
               controller: _panelController,
@@ -79,11 +81,11 @@ class _ContentDetailScreenState extends State<ContentDetailScreen> {
                       children: [
                         Column(
                           children: [
-                            const Column(
+                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Bà Triệu',
+                                  widget.content.name,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 30,
@@ -109,25 +111,25 @@ class _ContentDetailScreenState extends State<ContentDetailScreen> {
                                 ),
                               ],
                             ),
-                            Text(dummyText),
+                            Text(widget.content.description ?? ''),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 BehaviorButton(
                                     icon: Icons.star,
                                     color: Colors.yellow,
-                                    text: '18K',
+                                    text: '${widget.content.nOfStars}K',
                                     onTap: () {}),
                                 BehaviorButton(
                                     icon: Icons.favorite,
                                     color: Colors.red,
-                                    text: '18K',
+                                    text: '${widget.content.nOfFavs}K',
                                     onTap: () {
                                       print('hihi');
                                     }),
                                 BehaviorButton(
                                     icon: Icons.messenger,
-                                    text: '18K',
+                                    text: '${widget.content.nOfComments}K',
                                     onTap: () {}),
                                 BehaviorButton(
                                     icon: Icons.bookmark,

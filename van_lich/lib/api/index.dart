@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:van_lich/models/collection.dart';
 
+import '../data/content.dart';
 import '../models/content.dart';
 
 class API {
@@ -10,9 +11,10 @@ class API {
 
   static Future<List<Content>> getListOfSuggestionContents({int skip = 1, int limit = 2}) async {
     try {
-      final response = await dio.get(
-          'content/suggest/?skip=$skip&limit=$limit');
-      List<Content> contents = response.data.map((e) => Content.fromJson(e));
+      // final response = await dio.get(
+      //     'content/suggest/?skip=$skip&limit=$limit');
+      // List<Content> contents = response.data.map((e) => Content.fromJson(e));
+      List<Content> contents = currentContent;
       return contents;
     } catch(e) {
       if (e is DioError) {

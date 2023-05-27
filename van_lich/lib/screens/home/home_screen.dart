@@ -18,137 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List cards = [
-    Hero(
-      tag: '0',
-      child: Material(
-        type: MaterialType.transparency,
-        child: SizedBox(
-          child: Stack(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/ba-trieu-01.png')),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              Positioned.fill(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8.0, left: 11.0, right: 11.0, bottom: 0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [
-                          Colors.black.withOpacity(0.6),
-                          Colors.transparent
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                bottom: 20,
-                left: 30,
-                right: 0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Bà Triệu',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'by Editor',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'following',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Sử thi Bà Triệu Thị Trinh',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    ),
-
-    Hero(
-      tag: '1',
-      child: Material(
-        type: MaterialType.transparency,
-        child: SizedBox(
-          child: Stack(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/ba-trieu-01.png')),
-                  borderRadius: BorderRadius.circular(10),
-                  // boxShadow: const [
-                  //    BoxShadow(
-                  //      spreadRadius: 2, blurRadius: 3.0,
-                  //   )
-                  //
-                  // ]
-                ),
-              ),
-              Positioned.fill(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8.0, left: 11.0, right: 11.0, bottom: 0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [
-                          Colors.black.withOpacity(0.6),
-                          Colors.transparent
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-
-  ];
 
   StreamController indexController = StreamController();
   final CardSwiperController swiperController = CardSwiperController();
@@ -162,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) =>
-            ContentDetailScreen(id: contents[currentIndex ?? previousIndex].id)),
+            ContentDetailScreen(content: contents[currentIndex ?? previousIndex])),
       );
 
     }
@@ -223,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) =>
-                              ContentDetailScreen(id: index.toString())),
+                              ContentDetailScreen(content: contents[index])),
                         );
                       },
                       child: Hero(
@@ -237,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: NetworkImage(contents[index].mainGraphicUrl)),
+                                        image: AssetImage(contents[index].mainGraphicUrl)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
