@@ -1,8 +1,12 @@
 
 <h1 style="text-align: center;"><b>Van Lich Mobile App</b></h>
 
+<p align="middle">
+  <img src="https://github.com/UIT-21521109/VanLich/assets/105123355/09a83e0f-8138-4ad8-b9b2-0faa6bcfcd5d" margin="5%" width="50%" />
+</p>
 
 ## ***powered by***
+
 
 <p align="middle">
   <img src="https://static-00.iconduck.com/assets.00/flutter-plain-icon-827x1024-okfp25wt.png" margin="5%" width="15%" />
