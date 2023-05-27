@@ -5,11 +5,11 @@ GET http://localhost:5066/api/v1/content/debug/{{id}}
 ###
 GET http://localhost:5066/api/v1/health
 ###
-GET http://localhost:5066/api/v1/content/?skip=1&limit=2
+GET http://localhost:5066/api/v1/content/?skip=0&limit=2
 ###
 GET http://localhost:5066/api/v1/content/suggest?skip=1&limit=2
 ###
-GET http://localhost:5066/api/v1/content/search/?name=ho&skip=0&limit=1
+GET http://localhost:5066/api/v1/content/search/?name=S&skip=0&limit=1
 ```
 ###
 

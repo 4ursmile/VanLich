@@ -1,7 +1,8 @@
 @id = 647086b000478caf34cac0f9
 @contentid = 5f9f6f46739418a6bc8191d3
 GET http://localhost:5066/api/v1/comment/content/?contentid={{contentid}}&skip=0&limit=10
-
+###
+GET  http://localhost:5066/api/v1/comment/content/?limit=3
 ###
 GET http://localhost:5066/api/v1/comment/debug/{{id}}
 ###

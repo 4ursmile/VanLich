@@ -1,6 +1,9 @@
 
 <h1 style="text-align: center;"><b>Van Lich Mobile App</b></h>
 
+
+## ***powered by***
+
 <p align="middle">
   <img src="https://static-00.iconduck.com/assets.00/flutter-plain-icon-827x1024-okfp25wt.png" margin="5%" width="15%" />
   <img src="https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png" margin="5%" width="15%" />
@@ -12,6 +15,17 @@
 ---
 ## **VANLICH API**
 ---
+## **User guide**
+You need install docker [Here](https://docs.docker.com/desktop/)
+Run follow command:
+```shell
+docker build -t vanlichapi .
+```
+
+```shell
+dotnet run
+```
+That's all
 
 ## **Note**
 First of all, this is some note for this SERVER.

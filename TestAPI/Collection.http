@@ -7,7 +7,7 @@ GET http://localhost:5066/api/v1/collection/debug/{{id}}
 ###
 GET http://localhost:5066/api/v1/collection/?skip=0&limit=3
 ###
-GET http://localhost:5066/api/v1/collection/search/?name=HE
+GET http://localhost:5066/api/v1/collection/search/?name=ol
 ###
 GET http://localhost:5066/api/v1/collection/suggest/?limit=2
 ###

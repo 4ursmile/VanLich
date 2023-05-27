@@ -1,5 +1,33 @@
-# **VANLICH API**
+
+<h1 style="text-align: center;"><b>Van Lich Mobile App</b></h>
+
+
+## ***powered by***
+
+<p align="middle">
+  <img src="https://static-00.iconduck.com/assets.00/flutter-plain-icon-827x1024-okfp25wt.png" margin="5%" width="15%" />
+  <img src="https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png" margin="5%" width="15%" />
+  <img src="https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Image-HD.png" margin="5%" width="15%" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png" margin="5%" width="15%" />
+  <img src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-mysql-and-moodle-elearningworld-5.png" margin="5%" width="15%" />
+</p>
+
 ---
+## **VANLICH API**
+---
+
+## **User guide**
+You need install docker [Here](https://docs.docker.com/desktop/)
+Run follow command:
+```shell
+docker build -t vanlichapi .
+```
+
+```shell
+dotnet run
+```
+That's all
+
 ## **Note**
 First of all, this is some note for this SERVER.
 - This server was build for short context, so it's have no enough API for a real application.
@@ -19,7 +47,7 @@ What need to do with this Repo?
 |------------| ---|
 |[Basic Syntax](#basic-syntax)|GET / POST / PUT / DELETE |
 |[For healt check](#health-check)| GET|
-|[Content](#content)|GET / POST / PUT / DELETE |
+|[**Content(*)**](#content)|GET / POST / PUT / DELETE |
 |[Comment](#comment)|GET / POST / PUT / DELETE |
 |[Collection](#collection)|GET / POST / PUT / DELETE |
 |[User](#user)|GET / POST / PUT / DELETE |
@@ -629,7 +657,14 @@ Content-Type: application/json
 }
 
 ```
-### **PUT**
+### **DELETE**
 ```HTTP
 DELETE http://localhost:5066/api/v1/user/{{id}}
 ```
+---
+**Note that, In all case POST will reply a model like example in Content/POST and PUT and DELETE will reply NoContent like example in Content PUT/DELETE.**
+
+
+---
+# Work in progress.....................................
+---

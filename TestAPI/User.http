@@ -4,7 +4,7 @@ GET http://localhost:5066/api/v1/user/active
 ```
 ###
 
-PUT http://localhost:5066/api/v1/user/{{id}} 
+POST http://localhost:5066/api/v1/user/
 Content-Type: application/json
 
 {
