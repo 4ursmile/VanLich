@@ -23,16 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
   StreamController indexController = StreamController();
   final CardSwiperController swiperController = CardSwiperController();
   List<Content> contents = [];
+
   bool _onSwipe(int previousIndex,
       int? currentIndex,
       CardSwiperDirection direction,) {
+
     indexController.sink.add(currentIndex ?? previousIndex);
     if (direction == CardSwiperDirection.top) {
       print('top');
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) =>
-            ContentDetailScreen(content: contents[currentIndex ?? previousIndex])),
+            ContentDetailScreen(content: contents[currentIndex ?? previousIndex])
+        ),
       );
 
     }

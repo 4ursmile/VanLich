@@ -2,15 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:van_lich/data/content.dart';
 import 'package:van_lich/models/models.dart';
+import 'package:van_lich/screens/content_detail/content_detail_screen.dart';
 
 class scrollingItems extends StatelessWidget {
-  final List<User>? user;
-  final List<Content>? content;
+  final List<Content> content;
 
   const scrollingItems({
     Key? key,
-    @required this.user,
-    @required this.content
+    required this.content
   }) : super(key: key);
 
   @override
@@ -26,23 +25,22 @@ class scrollingItems extends StatelessWidget {
           scrollDirection: Axis.horizontal,
 
           //Co the null
-          itemCount: content!.length,
+          itemCount: content.length,
 
 
           itemBuilder: (BuildContext context, int index) {
             // final User? indexUser = user?[index];
-            final Content? indexContent = content?[index];
+            final Content indexContent = content[index];
             //Tim nguoi dang bai do
-            User? postUser;
-            for (var u in user!) {
-              if (u.id == indexContent!.userID) {
-                postUser = u;
-                break;
-              }
-            }
+            // User postUser = User(id: '000', email: '00@gmail.com', password: '123456');
+            // for (var u in user!) {
+            //   if (u.id == indexContent.userID) {
+            //     postUser = u;
+            //     break;
+            //   }
+            // }
             //Truyen vao nguoi dang va content bai do
             return scrollItem(
-              user: postUser,
               content: indexContent,
             );
           }
@@ -54,12 +52,10 @@ class scrollingItems extends StatelessWidget {
 
 
 class scrollItem extends StatelessWidget {
-  final User? user;
-  final Content? content;
+  final Content content;
   const scrollItem ({
     Key? key,
-    this.user,
-    this.content,
+    required this.content,
   }) : super(key: key);
 
   @override
@@ -68,8 +64,15 @@ class scrollItem extends StatelessWidget {
       padding: const EdgeInsets.only(right: 15),
       child: GestureDetector(
         onTap: () {
-          // Handle tap event on the trending widget
-          print('Trending widget tapped');
+          if (content != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>
+                  ContentDetailScreen(content: content)),
+            );
+            print('Trending widget tapped ${content.id}');
+          }
+
         },
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10), // Specify the desired border radius here
