@@ -3,6 +3,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:van_lich/screens/content_detail/content_detail_screen.dart';
 
 import '../../components/behavior_button.dart';
+import '../video_player/video_player.dart';
 import 'components/more_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -154,7 +155,11 @@ class _HomeScreenState extends State<HomeScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) =>
-            ContentDetailScreen(id: currentIndex.toString())),
+            TikTokVideoPlayerScreen(
+              videoFilePaths: ['assets/videos/demo1.mp4','assets/videos/demo2.mp4'],
+              videoTitles: ['Đại chiến thành Đa Bang - Phần 1', 'Đại chiến thành Đa Bang - Phần 2'],
+              videoDescriptions: ['Nhà Hồ thành lập', 'Mộc Thạnh xuất hiện'],
+            )),
       );
     }
     if (direction == CardSwiperDirection.left) {
