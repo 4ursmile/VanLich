@@ -1,13 +1,18 @@
 @id=64704ecc79725509dc2e188e
 @type=story
+
+GET http://localhost:5066/api/v1/content/debug/{{id}}
 ###
-GET http://localhost:5066/api/v1/v1/health
+GET http://localhost:5066/api/v1/health
+###
+GET http://localhost:5066/api/v1/content/?skip=1&limit=2
 ###
 
-
-GET http://localhost:5066/api/v1/content/search/?name=em&skip=0&limit=1
+GET http://localhost:5066/api/v1/content/search/?name=ho&skip=0&limit=1
 ```
+###
 
+GET http://localhost:5066/api/v1/content/related/?type=story&id={{id}}
 ###
 
 POST http://localhost:5066/api/v1/content
@@ -15,7 +20,7 @@ Content-Type: application/json
 
 {
     "debug": false,
-    "name": "SchemeHolding2",
+    "name": "aas",
     "userID": null,
     "mainGraphicUrl": "hold",
     "nOfStars": 1,
@@ -46,8 +51,8 @@ Content-Type: application/json
 
 {
     "debug": false,
-    "name": "SchemeHolding",
-    "userID": "hold",
+    "name": "SchemeHolding4444",
+    "userID": null,
     "mainGraphicUrl": "hold",
     "nOfStars": 1,
     "nOfFavs": 1,

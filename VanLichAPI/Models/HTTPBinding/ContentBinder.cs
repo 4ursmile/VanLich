@@ -14,4 +14,8 @@ namespace VanLichAPI.Models.HTTPBinding
     {
         public string? name {get; set;}
     }
+    public class CollectionsBinder : Related
+    {
+        public string? collectionId {get; set;}
+    }
 }

@@ -16,6 +16,9 @@ Content-Type: application/json
     "userId": null,
     "description": "this is collection 2",
     "thumbnail": "this is link 3",
-    "contentIds": [],
+    "contentIds": ["6470b92d7b21a9a06e26cc8b"],
     "createdDate": "2020-01-01T00:00:00.000Z"
 }
+###
+@id=647192168229721a1b3ebde2
+GET http://localhost:5066/api/v1/content/collection?collectionid={{id}}&skip=0&limit=1

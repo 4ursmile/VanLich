@@ -82,9 +82,9 @@ public class ContentController:ControllerBase
     }
     [HttpGet]
     [Route("collection")]
-    public async Task<ActionResult<List<Content>>> GetByCollectionAsync([FromQuery] string? collectionId)
+    public async Task<ActionResult<List<Content>>> GetByCollectionAsync([FromQuery] CollectionsBinder cb)
     {
-        var contentList = await _contentServices.GetByCollectionAsync(collectionId);
+        var contentList = await _contentServices.GetByCollectionAsync(cb.collectionId, cb.Skip, cb.Limit);
         if (contentList == null)
         {
             return NotFound();

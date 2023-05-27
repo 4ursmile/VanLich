@@ -36,23 +36,23 @@ public class ContentServices : IModelServices<Content>
         {
             await _vanLichDbServices.ContentCollection.UpdateManyAsync(c => c.debug == true && c.name != "SchemeHolding", Builders<Content>.Update.Set(c => c.debug, false));
         }
-        public async Task<List<Content>> GetByCollectionAsync(string? collectionID)
+        public async Task<List<Content>> GetByCollectionAsync(string? collectionID, int skip = 0, int limit = 10)
         {
             if (collectionID == null) 
-                return await GetSuggestAsync();
+                return await GetSuggestAsync(limit);
+
             var collection = await _vanLichDbServices.ColCollection.Find(c => c.Id == collectionID).FirstOrDefaultAsync();
-            var contentList = new List<Content>();
-            foreach (var contentID in collection.contentIds)
-            {
-                var content = await _vanLichDbServices.ContentCollection.Find(c => c.Id == contentID).FirstOrDefaultAsync();
-                contentList.Add(content);
-            }
-            return contentList;
+            if (collection == null) return await GetSuggestAsync(limit);
+            var contentList = collection.contentIds;
+            var filter = Builders<Content>.Filter.In(c => c.Id, contentList);
+            var contentLists = await _vanLichDbServices.ContentCollection.Find(filter).Skip(skip).Limit(limit).ToListAsync();
+            return contentLists;
         }
         public async Task<List<Content>> GetByNameAsync(string? name, int skip, int limit)
         {
             if (name == null) return await GetAllAsync(skip, limit);
-            var filter = new BsonDocument{ { "name", new BsonDocument { { "$regex", name } } } };
+            //var filter = new BsonDocument{ { "name", new BsonDocument { { "$regex", name } } } };
+            var filter = new BsonDocument{ {"name", new BsonRegularExpression(name, "i")} };
             var contentList = await _vanLichDbServices.ContentCollection.
                                                         Find(filter).
                                                         Skip(skip).
@@ -93,14 +93,28 @@ public class ContentServices : IModelServices<Content>
         {
             if (type == null && id != null) return await GetRelatedAsync(id, skip, limit);
             if (type == null && id == null) return await GetAllAsync(skip, limit);
+            if (type != null && id == null) return await GetByTypeAsync(type, skip, limit);
             var content = await _vanLichDbServices.ContentCollection.Find(c => c.Id == id).FirstOrDefaultAsync();
-            if (content == null) return null;
+            if (content == null) return await GetByTypeAsync(type, skip, limit);
             var contentList = await _vanLichDbServices.ContentCollection.Find(
                 c => c.catagories.Any(
                     catagory => content.catagories.Contains(catagory)) && c.type == type).
                     Skip(skip).
                     Limit(limit).
                     ToListAsync();
+            if (contentList.Count >= limit) return contentList;
+            var contentList2 = await _vanLichDbServices.ContentCollection.Find(
+                c => c.type==type&& 
+                contentList.All(c1=> c1.Id!=c.Id)).
+                    Limit(limit - contentList.Count).
+                    ToListAsync();
+            var contentList3 = Enumerable.Union(contentList, contentList2).ToList();
+            return contentList3;
+        }
+        public async Task<List<Content>?> GetByTypeAsync(string? type, int skip = 0, int limit = 10)
+        {
+            if (type == null) return await GetAllAsync(skip, limit);
+            var contentList = await _vanLichDbServices.ContentCollection.Find(c => c.type == type).Skip(skip).Limit(limit).ToListAsync();
             return contentList;
         }
 }
