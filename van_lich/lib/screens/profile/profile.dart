@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage('https://example.com/background.jpg'),
+                  image: NetworkImage('https://cdn.tgdd.vn/Files/2022/03/25/1422359/kham-pha-dau-an-lich-su-co-do-dai-noi-hue-hoang-thanh-hue-202203251516507682.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -27,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40.0,
-                      backgroundImage: NetworkImage('https://example.com/avatar.jpg'),
+                      backgroundImage: NetworkImage('https://syphu.com.vn/wp-content/uploads/2022/11/ga-hoa-de-281364.jpg'),
                     ),
                     SizedBox(height: 16.0),
                     Text(
@@ -63,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.0),
                   Text(
-                    'I love Viet Nam <3',
+                    'Giữa vô vàn món lẩu theo nhiều phong cách ẩm thực khác nhau (Hàn, Thái, Lào, miền Bắc, miền Nam…), lẩu gà vẫn là món được yêu thích và được đề xuất nhiều nhất trong các bàn ăn; bởi vì thịt gà là món ăn không kén khách và quá đỗi quen thuộc trong bữa cơm người Việt. Còn gì tuyệt hơn giữa một ngày se lạnh, mọi người quây quần bên nhau quanh một nồi lẩu nghi ngút khói, hít hà mùi thơm của thịt gà, xì xụp nước lẩu ngọt thanh, tán dóc vài câu chuyện…',
                     style: TextStyle(fontSize: 16.0),
                   ),
                 ],

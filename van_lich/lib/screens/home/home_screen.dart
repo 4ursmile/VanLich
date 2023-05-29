@@ -221,34 +221,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   stream: indexController.stream,
                   builder: (context, snapshot) {
                     return Padding(
-                        padding: const EdgeInsets.only(top: 8.0, left: 11.0, right: 11.0, bottom: 0),
+                        padding: const EdgeInsets.only(top: 8.0, left: 26.0, right: 26.0, bottom: 0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        BehaviorButton(
-                          icon: Icons.star,
-                          color: Colors.yellow,
-                          text: '${contents[snapshot.data].nOfStars}',
-                          onTap: () {},
-                          scale: 1,
+                        FittedBox(
+                          child: BehaviorButton(
+                            icon: Icons.star,
+                            color: Colors.yellow,
+                            text: '${contents[snapshot.data].nOfStars}',
+                            onTap: () {},
+                            scale: 1,
+                          ),
                         ),
-                        BehaviorButton(
-                          icon: Icons.favorite,
-                          color: Colors.red,
-                          text: '${contents[snapshot.data].nOfFavs}',
-                          onTap: () {},
-                          scale: 1,
+                        FittedBox(
+                          child: BehaviorButton(
+                            icon: Icons.favorite,
+                            color: Colors.red,
+                            text: '${contents[snapshot.data].nOfFavs}',
+                            onTap: () {},
+                            scale: 1,
+                          ),
                         ),
-                        BehaviorButton(
-                          icon: Icons.chat_bubble,
-                          color: Colors.grey,
-                          text: '${contents[snapshot.data].nOfComments}',
-                          onTap: () {},
-                          scale: 1,
+                        FittedBox(
+                          child: BehaviorButton(
+                            icon: Icons.chat_bubble,
+                            color: Colors.grey,
+                            text: '${contents[snapshot.data].nOfComments}',
+                            onTap: () {},
+                            scale: 1,
+                          ),
                         ),
-                        MoreButton(
-                        ),
+                        MoreButton(),
                       ],
+
                     ),
                     );
                   },
