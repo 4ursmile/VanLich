@@ -10,17 +10,18 @@ import 'package:van_lich/screens/content_detail/content_detail_screen.dart';
 import 'package:van_lich/screens/home/components/more_button.dart';
 
 import '../../../models/content.dart';
-List<Content> filterContentsByIDs(Collection collection, List<Content> allContents) {
-  List<Content> filteredContents = allContents.where((content) => collection.contentIds.contains(content.id)).toList();
+
+List<Content> filterContentsByIDs(
+    Collection collection, List<Content> allContents) {
+  List<Content> filteredContents = allContents
+      .where((content) => collection.contentIds.contains(content.id))
+      .toList();
   return filteredContents;
 }
 
 class collectionView extends StatefulWidget {
   final Collection collection;
-  const collectionView({
-    Key? key,
-    required this.collection
-  }) : super(key: key);
+  const collectionView({Key? key, required this.collection}) : super(key: key);
 
   @override
   State<collectionView> createState() => _collectionView();
@@ -33,20 +34,20 @@ class _collectionView extends State<collectionView> {
   final CardSwiperController swiperController = CardSwiperController();
   List<Content> contents = [];
 
-  bool _onSwipe(int previousIndex,
-      int? currentIndex,
-      CardSwiperDirection direction,) {
-
+  bool _onSwipe(
+    int previousIndex,
+    int? currentIndex,
+    CardSwiperDirection direction,
+  ) {
     indexController.sink.add(currentIndex ?? previousIndex);
     if (direction == CardSwiperDirection.top) {
       print('top');
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) =>
-            ContentDetailScreen(content: contents[currentIndex ?? previousIndex])
-        ),
+        MaterialPageRoute(
+            builder: (context) => ContentDetailScreen(
+                content: contents[currentIndex ?? previousIndex])),
       );
-
     }
     if (direction == CardSwiperDirection.left) {
       print('left');
@@ -62,7 +63,6 @@ class _collectionView extends State<collectionView> {
     // TODO: implement initState
     super.initState();
     collect = widget.collection;
-
   }
 
   @override
@@ -80,11 +80,12 @@ class _collectionView extends State<collectionView> {
         child: FutureBuilder<List<Content>>(
             future: API.getListOfSuggestionContents(),
             builder: (context, snapshot) {
-              if(!snapshot.hasData) {
+              if (!snapshot.hasData) {
                 return CircularProgressIndicator();
               }
               contents = snapshot.data ?? [];
-              List<Content> filteredContents = filterContentsByIDs(widget.collection, contents);
+              List<Content> filteredContents =
+                  filterContentsByIDs(widget.collection, contents);
 
               if (filteredContents.isEmpty) {
                 return const Text('Something went wrong!');
@@ -107,8 +108,9 @@ class _collectionView extends State<collectionView> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) =>
-                                ContentDetailScreen(content: filteredContents[index])),
+                            MaterialPageRoute(
+                                builder: (context) => ContentDetailScreen(
+                                    content: filteredContents[index])),
                           );
                         },
                         child: Hero(
@@ -120,12 +122,18 @@ class _collectionView extends State<collectionView> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 8.0, left: 11.0, right: 11.0, bottom: 0),
+                                        top: 8.0,
+                                        left: 11.0,
+                                        right: 11.0,
+                                        bottom: 0),
                                     child: Container(
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
-                                            image: AssetImage(filteredContents[index].mainGraphicUrl), fit: BoxFit.cover),
+                                            image: AssetImage(
+                                                filteredContents[index]
+                                                    .mainGraphicUrl),
+                                            fit: BoxFit.cover),
                                         borderRadius: BorderRadius.circular(30),
                                       ),
                                     ),
@@ -133,7 +141,10 @@ class _collectionView extends State<collectionView> {
                                   Positioned.fill(
                                     child: Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 8.0, left: 11.0, right: 11.0, bottom: 0),
+                                          top: 8.0,
+                                          left: 11.0,
+                                          right: 11.0,
+                                          bottom: 0),
                                       child: Container(
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
@@ -144,7 +155,8 @@ class _collectionView extends State<collectionView> {
                                               Colors.transparent
                                             ],
                                           ),
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                         ),
                                       ),
                                     ),
@@ -154,7 +166,8 @@ class _collectionView extends State<collectionView> {
                                     left: 30,
                                     right: 0,
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           filteredContents[index].name,
@@ -170,14 +183,16 @@ class _collectionView extends State<collectionView> {
                                           children: [
                                             Text(
                                               'by Editor',
-                                              style: TextStyle(color: Colors.white),
+                                              style: TextStyle(
+                                                  color: Colors.white),
                                             ),
                                             SizedBox(
                                               width: 5,
                                             ),
                                             Text(
                                               'following',
-                                              style: TextStyle(color: Colors.white),
+                                              style: TextStyle(
+                                                  color: Colors.white),
                                             ),
                                           ],
                                         ),
@@ -187,7 +202,8 @@ class _collectionView extends State<collectionView> {
                                         Text(
                                           filteredContents[index].caption,
                                           style: TextStyle(
-                                              color: Colors.white, fontWeight: FontWeight.bold),
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -212,26 +228,30 @@ class _collectionView extends State<collectionView> {
                             BehaviorButton(
                                 icon: Icons.star,
                                 color: Colors.yellow,
-                                text: '${filteredContents[snapshot.data].nOfStars}K',
+                                text:
+                                    '${filteredContents[snapshot.data].nOfStars}',
                                 onTap: () {}),
                             BehaviorButton(
                                 icon: Icons.favorite,
                                 color: Colors.red,
-                                text: '${filteredContents[snapshot.data].nOfFavs}K',
+                                text:
+                                    '${filteredContents[snapshot.data].nOfFavs}',
                                 onTap: () {
                                   print('hihi');
                                 }),
                             BehaviorButton(
-                                icon: Icons.messenger, text: '${filteredContents[snapshot.data].nOfComments}K', onTap: () {}),
+                                icon: Icons.messenger,
+                                color: Colors.black,
+                                text:
+                                    '${filteredContents[snapshot.data].nOfComments}',
+                                onTap: () {}),
                             const MoreButton(),
                           ],
                         );
-                      }
-                  )
+                      })
                 ],
               );
-            }
-        ),
+            }),
       ),
     );
   }

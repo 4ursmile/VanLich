@@ -17,6 +17,7 @@ class MoreButton extends StatelessWidget {
           children: const [
             Icon(
               Icons.more_horiz,
+              color: Colors.grey,
             ),
             SizedBox(
               width: 4,
@@ -25,8 +26,8 @@ class MoreButton extends StatelessWidget {
               child: Text(
                 'More',
                 style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.black
+                  fontSize: 16,
+                  color: Colors.grey,
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -92,7 +93,6 @@ class MoreButton extends StatelessWidget {
         ],
         isExpanded: true,
         iconStyleData: IconStyleData(
-
           iconSize: 0,
         ),
         menuItemStyleData: const MenuItemStyleData(
@@ -109,7 +109,8 @@ class MoreButton extends StatelessWidget {
           offset: Offset(-80, 180),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [BoxShadow(spreadRadius: 3.0, blurRadius: 8.0)]),
+              boxShadow: [BoxShadow(spreadRadius: 1.0, blurRadius: 10.0)],
+          ),
         ),
       ),
     );
