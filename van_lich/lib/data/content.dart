@@ -50,7 +50,29 @@ final List<Content> currentContent = [
 
 
   ),
+  Content(
+      id: '036',
+      name: 'Phong tục gói bánh chưng ngày Tết',
+      userID: '003',
+      mainGraphicUrl: 'assets/images/chung.jpeg',
+      caption: 'Nét văn hóa truyền thống của dân tộc Việt Nam',
+      content: 'Tục gói chưng ngày Tết đã trở thành nét văn hóa truyền thống của dân tộc Việt Nam, được lưu truyền qua nhiều thế hệ người Việt, thể hiện nét đẹp của nền văn minh lúa nước. Mỗi khi Tết đến Xuân về, người người, nhà nhà lại gói bánh chưng ăn Tết, dâng bánh lên bàn thờ tổ tiên. Truyền thuyết “Bánh chưng, bánh dày” xuất hiện từ đời Hùng Vương thứ 6, nhân dịp giỗ tổ vua Hùng đã triệu tập các quan Lang (các con của nhà vua) đến và truyền rằng: vị quan Lang nào tìm được món lễ vật dâng lên tổ tiên hợp ý với nhà vua nhất sẽ được nhà vua nhường ngôi. Các vị quan Lang lên rừng, xuống biển tìm châu ngọc và các sản vật quý để làm lễ vật dâng lên nhà vua. Riêng Lang Liêu là người con nghèo khó nhất trong số các vị quan Lang, chàng không tìm những sản vật quý hiếm về dâng vua cha, mà đã dùng ngay những nông sản thường ngày gồm gạo nếp, đỗ xanh, thịt lợn và lá dong để tạo ra hai loại bánh tượng trưng cho trời tròn và đất vuông (còn được gọi là bánh chưng và bánh dày) để làm lễ vật dâng vua cha. Lễ vật của Lang Liêu hợp với ý vua Hùng nhất và nhà vua đã truyền ngôi cho Lang Liêu… Từ đó bánh Chưng, bánh dày đã trở thành lễ vật không thể thiếu trong các nghi thức thờ cúng, để thể hiện tấm lòng uống nước nhớ nguồn đối với tiên tổ, cha, ông.',
+      createDate: DateTime(2023, 5, 24),
+      type: 'story'
 
+  ),
+
+  Content(
+      id: '038',
+      name: 'Vịnh Hạ Long được UNESCO công nhận là 1 trong 7 kỳ quan thế giới',
+      userID: '003',
+      mainGraphicUrl: 'assets/images/danh.jpeg',
+      caption: '',
+      content: 'Được UNESCO công nhận năm 1994 và năm 2000 là Di sản thiên nhiên thế giới nhằm tôn vinh vẻ đẹp cảnh quan và giá trị địa chất, địa mạo, vịnh Hạ Long, thuộc tỉnh Quảng Ninh là tác phẩm nghệ thuật tạo hình vĩ đại và kỳ diệu của thiên nhiên. Vịnh Hạ Long có hàng nghìn đảo đá, mỗi đảo mang một hình dáng độc đáo khác nhau. tiềm ẩn trong lòng các đảo đá là những hang động tuyệt đẹp gắn với nhiều truyền thuyết thần kỳ. địa danh này mang những dấu tích quan trọng về quá trình hình thành và phát triển trái đất với tuổi kiến tạo địa chất lên đến 250-280 triệu năm.',
+      createDate: DateTime(2023, 5, 24),
+      type: 'story'
+
+  ),
   Content(
       id: '033',
       name: 'Đại chiến thành Đa Bang - Phần 1',
