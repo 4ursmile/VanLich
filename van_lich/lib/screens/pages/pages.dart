@@ -6,14 +6,16 @@ import 'package:van_lich/screens/home/home_screen.dart';
 import '../setting/setting_screen.dart';
 import '../home/home_screen.dart';
 import 'components/bottom_navigation.dart';
+import 'package:van_lich/screens/message/message_screen.dart';
 
 class Pages extends StatefulWidget {
   Pages({Key? key}) : super(key: key);
   final List<Widget> tabs = [
-     HomeScreen(),
-     ExploreScreen(),
-    // PostScreen(),
-     ProfileScreen()
+    HomeScreen(),
+    ExploreScreen(),
+    PostScreen(),
+    MessageScreen(),
+    ProfileScreen()
   ];
 
   @override

@@ -80,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    print('vao day');
   }
 
   @override
@@ -91,7 +90,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('build');
     return Scaffold(
       body: SizedBox(
         height: 900,
@@ -108,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 SizedBox(
                   height: 600,
                   width: 400,
@@ -217,6 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 30),
+                
                 StreamBuilder(
                   stream: indexController.stream,
                   builder: (context, snapshot) {

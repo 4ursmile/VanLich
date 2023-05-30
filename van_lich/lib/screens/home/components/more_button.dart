@@ -106,10 +106,17 @@ class MoreButton extends StatelessWidget {
         dropdownStyleData: DropdownStyleData(
           width: 140,
           elevation: 0,
-          offset: Offset(-80, 180),
+          offset: Offset(-65, 180),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [BoxShadow(spreadRadius: 1.0, blurRadius: 10.0)],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2.0,
+                  blurRadius: 5.0
+                ),
+
+              ],
           ),
         ),
       ),

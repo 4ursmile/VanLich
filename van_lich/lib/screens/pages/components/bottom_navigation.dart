@@ -17,6 +17,8 @@ class BottomNavigation extends StatelessWidget {
     return BottomNavigationBar(
       selectedFontSize: 12,
       selectedItemColor: Theme.of(context).primaryColor,
+      unselectedItemColor: Theme.of(context).disabledColor,
+      type: BottomNavigationBarType.fixed,
       currentIndex: selectedIndex,
       onTap: handleChangeIndex,
       items: [
@@ -32,6 +34,19 @@ class BottomNavigation extends StatelessWidget {
         //   icon: Icon(Icons.collections),
         //   label: 'Story',
         // ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.post_add),
+          label: 'Post'.tr,
+        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(Icons.collections),
+        //   label: 'Story',
+        // ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.message),
+          label: 'Message'.tr,
+        ),
+
         BottomNavigationBarItem(
           // icon: CachedNetworkImage(
           //   imageUrl: context.watch<Auth>().user?.avatar == ""
