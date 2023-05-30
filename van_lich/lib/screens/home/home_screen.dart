@@ -44,8 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ) {
     indexController.sink.add(currentIndex ?? previousIndex);
     if (direction == CardSwiperDirection.top) {
-      print('top');
-      int index = previousIndex!;
+      int index = previousIndex;
       if (contents[index].type == 'video') {
         var videoList = filterAndRotateArray(contents[index].id, contents);
         List<String> videoFilePaths = videoList.map((content) => content.content).toList();
@@ -229,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: BehaviorButton(
                             icon: Icons.star,
                             color: Colors.yellow,
-                            text: '${contents[snapshot.data].nOfStars}',
+                            text: '${contents[snapshot.data ?? 0].nOfStars}',
                             onTap: () {},
                             scale: 1,
                           ),
@@ -238,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: BehaviorButton(
                             icon: Icons.favorite,
                             color: Colors.red,
-                            text: '${contents[snapshot.data].nOfFavs}',
+                            text: '${contents[snapshot.data ?? 0].nOfFavs}',
                             onTap: () {},
                             scale: 1,
                           ),
@@ -247,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: BehaviorButton(
                             icon: Icons.chat_bubble,
                             color: Colors.grey,
-                            text: '${contents[snapshot.data].nOfComments}',
+                            text: '${contents[snapshot.data ?? 0].nOfComments}',
                             onTap: () {},
                             scale: 1,
                           ),
