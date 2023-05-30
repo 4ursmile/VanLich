@@ -37,7 +37,6 @@ class ImageCarousel extends State<CarouselWithDotsPage> {
           MaterialPageRoute(builder: (context) =>
               ContentDetailScreen(content: content)),
         );
-        print('Image clicked: ${content.id}');
       },
       child: Container(
         child: ClipRRect(

@@ -9,6 +9,7 @@ class PostScreen extends StatelessWidget {
       title: 'Post Screen',
       theme: ThemeData.light(),
       home: PostScreenPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
