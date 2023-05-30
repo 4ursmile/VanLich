@@ -15,7 +15,7 @@ class API {
       //     'content/suggest/?skip=$skip&limit=$limit');
       // List<Content> contents = response.data.map((e) => Content.fromJson(e));
       List<Content> contents = currentContent;
-      return contents;
+      return contents..shuffle();
     } catch(e) {
       if (e is DioError) {
         throw "Some thing went wrong!";
@@ -24,10 +24,26 @@ class API {
     }
   }
 
-  static Future<List<Content>> getListOfContents({int skip = 1, int limit = 2}) async {
+  static bool hasTheSameCategories(List<String> element, List<String> param) {
+    for(String i in element) {
+      for (String j in param) {
+        if(i == j) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  static Future<List<Content>> getListOfContents({int skip = 1, int limit = 2, List<String> cate = const[]}) async {
     try {
-      final response = await dio.get('content/?skip=$skip&limit=$limit');
-      List<Content> contents = response.data.map((e) => Content.fromJson(e));
+      // final response = await dio.get('content/?skip=$skip&limit=$limit');
+      // List<Content> contents = response.data.map((e) => Content.fromJson(e));
+      List<Content> contents = currentContent;
+      contents = contents.where((element) => element.type != 'video' || hasTheSameCategories(element.categories, cate)).toList()..shuffle();
+      for(Content i in contents) {
+        print(i.type);
+      }
       return contents;
     } catch(e) {
       if (e is DioError) {
