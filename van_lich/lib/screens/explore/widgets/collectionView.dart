@@ -229,13 +229,13 @@ class _collectionView extends State<collectionView> {
                                 icon: Icons.star,
                                 color: Colors.yellow,
                                 text:
-                                    '${filteredContents[snapshot.data].nOfStars}',
+                                    '${filteredContents[snapshot.data ?? 0].nOfStars}',
                                 onTap: () {}),
                             BehaviorButton(
                                 icon: Icons.favorite,
                                 color: Colors.red,
                                 text:
-                                    '${filteredContents[snapshot.data].nOfFavs}',
+                                    '${filteredContents[snapshot.data ?? 0].nOfFavs}',
                                 onTap: () {
                                   print('hihi');
                                 }),
@@ -243,7 +243,7 @@ class _collectionView extends State<collectionView> {
                                 icon: Icons.messenger,
                                 color: Colors.black,
                                 text:
-                                    '${filteredContents[snapshot.data].nOfComments}',
+                                    '${filteredContents[snapshot.data ?? 0].nOfComments}',
                                 onTap: () {}),
                             const MoreButton(),
                           ],
