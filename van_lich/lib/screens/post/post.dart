@@ -51,12 +51,13 @@ class _PostScreenPageState extends State<PostScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Container(
+        height: 600,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: 40.0),
+          children: [
+            SizedBox(height: 80.0),
             Text(
               'Create Post',
               style: TextStyle(
@@ -71,14 +72,17 @@ class _PostScreenPageState extends State<PostScreenPage> {
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              child: TextField(
-                controller: _titleController,
-                style: TextStyle(
-                  fontSize: 18.0,
-                ),
-                decoration: InputDecoration(
-                  hintText: 'Title',
-                  border: InputBorder.none,
+              child: Container(
+                height: 100,
+                child: TextField(
+                  controller: _titleController,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'Title',
+                    border: InputBorder.none,
+                  ),
                 ),
               ),
             ),
@@ -89,22 +93,25 @@ class _PostScreenPageState extends State<PostScreenPage> {
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              child: TextField(
-                controller: _contentController,
-                style: TextStyle(
-                  fontSize: 18.0,
-                ),
-                maxLines: null,
-                expands: true,
-                decoration: InputDecoration(
-                  hintText: 'Content',
-                  border: InputBorder.none,
+              child: SizedBox(
+                height: 100,
+                child: TextField(
+                  controller: _contentController,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                  maxLines: null,
+                  expands: true,
+                  decoration: InputDecoration(
+                    hintText: 'Content',
+                    border: InputBorder.none,
+                  ),
                 ),
               ),
             ),
             SizedBox(height: 24.0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
                   width: 48.0,
@@ -142,15 +149,12 @@ class _PostScreenPageState extends State<PostScreenPage> {
               ],
             ),
             SizedBox(height: 24.0),
-            Align(
-              alignment: Alignment.topLeft,
-              child: FloatingActionButton(
-                onPressed: _createPost,
-                child: Icon(Icons.send),
-              ),
-            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _createPost,
+        child: Icon(Icons.send),
       ),
     );
   }

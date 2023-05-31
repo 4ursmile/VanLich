@@ -144,133 +144,137 @@ class _ContentDetailScreenState extends State<ContentDetailScreen>
                           ),
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          BehaviorButton(
-                            icon: Icons.star,
-                            color: (isStarred) ? Colors.yellow : Colors.grey,
-                            text:
-                                '${widget.content.nOfStars + (isStarred ? 1 : 0)}',
-                            onTap: () {
-                              setState(() {
-                                isStarred = !isStarred;
-                              });
-                            },
-                            scale: _buttonAnimation.value,
-                          ),
-                          BehaviorButton(
-                            icon: Icons.favorite,
-                            color: (isFavorited) ? Colors.red : Colors.grey,
-                            text:
-                                '${widget.content.nOfFavs + (isFavorited ? 1 : 0)}',
-                            onTap: () {
-                              setState(() {
-                                isFavorited = !isFavorited;
-                              });
-                            },
-                            scale: _buttonAnimation.value,
-                          ),
-                          BehaviorButton(
-                            icon: Icons.messenger,
-                            color: Colors.grey,
-                            text: '${widget.content.nOfComments}',
-                            onTap: () {
+                      StatefulBuilder(
+                        builder: (context, StateSetter setState) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              BehaviorButton(
+                                icon: Icons.star,
+                                color: (isStarred) ? Colors.yellow : Colors.grey,
+                                text:
+                                    '${widget.content.nOfStars + (isStarred ? 1 : 0)}',
+                                onTap: () {
+                                  setState(() {
+                                    isStarred = !isStarred;
+                                  });
+                                },
+                                scale: _buttonAnimation.value,
+                              ),
+                              BehaviorButton(
+                                icon: Icons.favorite,
+                                color: (isFavorited) ? Colors.red : Colors.grey,
+                                text:
+                                    '${widget.content.nOfFavs + (isFavorited ? 1 : 0)}',
+                                onTap: () {
+                                  setState(() {
+                                    isFavorited = !isFavorited;
+                                  });
+                                },
+                                scale: _buttonAnimation.value,
+                              ),
+                              BehaviorButton(
+                                icon: Icons.messenger,
+                                color: Colors.grey,
+                                text: '${widget.content.nOfComments}',
+                                onTap: () {
 
-                              showModalBottomSheet(
-                                  context: context,
-                                  isScrollControlled: true,
-                                  builder: (context) {
-                                    return SingleChildScrollView(
-                                        child: Container(
-                                      height: size.height * 0.7,
-                                      decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.vertical(
-                                          top: Radius.circular(30),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 150, vertical: 10),
+                                  showModalBottomSheet(
+                                      context: context,
+                                      isScrollControlled: true,
+                                      builder: (context) {
+                                        return SingleChildScrollView(
                                             child: Container(
-                                              width: 60,
-                                              height: 5,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(100),
-                                                color: Colors.black
-                                                    .withOpacity(0.3),
-                                              ),
+                                          height: size.height * 0.7,
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(30),
                                             ),
+                                            color: Colors.white,
                                           ),
-                                          Container(
-                                            height: size.height * 0.6,
-                                            child: ListView(
-                                              shrinkWrap: true,
-                                              children: const [
-                                                CommentTile(),
-                                                CommentTile(),
-                                                CommentTile(),
-                                                CommentTile(),
-                                                CommentTile(),
-                                                CommentTile(),
-                                                CommentTile(),
-                                                CommentTile(),
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Container(),
-                                          ),
-                                          Row(
+                                          child: Column(
                                             children: [
-                                              const SizedBox(
-                                                width: 15,
-                                              ),
-                                              CircleAvatar(
-                                                backgroundImage: AssetImage(
-                                                    'assets/images/ba-trieu-01.png'),
-                                                radius: 15,
-                                              ),
-                                              Expanded(
-                                                child: TextField(
-                                                  decoration: InputDecoration(
-                                                    hintText:
-                                                        'Add a comment...',
-                                                    border: InputBorder.none,
-                                                    contentPadding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 16.0,
-                                                            vertical: 12.0),
+                                              Padding(
+                                                padding: const EdgeInsets.symmetric(
+                                                    horizontal: 150, vertical: 10),
+                                                child: Container(
+                                                  width: 60,
+                                                  height: 5,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(100),
+                                                    color: Colors.black
+                                                        .withOpacity(0.3),
                                                   ),
                                                 ),
                                               ),
-                                              IconButton(
-                                                icon: Icon(Icons.send),
-                                                onPressed: () {
-                                                  // Handle comment submission here
-                                                },
+                                              Container(
+                                                height: size.height * 0.6,
+                                                child: ListView(
+                                                  shrinkWrap: true,
+                                                  children: const [
+                                                    CommentTile(),
+                                                    CommentTile(),
+                                                    CommentTile(),
+                                                    CommentTile(),
+                                                    CommentTile(),
+                                                    CommentTile(),
+                                                    CommentTile(),
+                                                    CommentTile(),
+                                                  ],
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Container(),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  const SizedBox(
+                                                    width: 15,
+                                                  ),
+                                                  CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        'assets/images/ba-trieu-01.png'),
+                                                    radius: 15,
+                                                  ),
+                                                  Expanded(
+                                                    child: TextField(
+                                                      decoration: InputDecoration(
+                                                        hintText:
+                                                            'Add a comment...',
+                                                        border: InputBorder.none,
+                                                        contentPadding:
+                                                            EdgeInsets.symmetric(
+                                                                horizontal: 16.0,
+                                                                vertical: 12.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  IconButton(
+                                                    icon: Icon(Icons.send),
+                                                    onPressed: () {
+                                                      // Handle comment submission here
+                                                    },
+                                                  ),
+                                                ],
                                               ),
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                    ));
-                                  });
-                            },
-                            scale: _buttonAnimation.value,
-                          ),
-                          BehaviorButton(
-                            icon: Icons.bookmark,
-                            color: Colors.grey,
-                            text: '',
-                            onTap: () {},
-                            scale: _buttonAnimation.value,
-                          ),
-                        ],
+                                        ));
+                                      });
+                                },
+                                scale: _buttonAnimation.value,
+                              ),
+                              BehaviorButton(
+                                icon: Icons.bookmark,
+                                color: Colors.grey,
+                                text: '',
+                                onTap: () {},
+                                scale: _buttonAnimation.value,
+                              ),
+                            ],
+                          );
+                        }
                       ),
                       const SizedBox(height: 10),
                     ],

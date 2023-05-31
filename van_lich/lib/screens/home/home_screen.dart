@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   List<Content> filterAndRotateArray(String selectedId, List<Content> contentList) {
     List<Content> filteredList = contentList.where((content) => content.type == 'video').toList();
 
@@ -33,6 +33,11 @@ class _HomeScreenState extends State<HomeScreen> {
       return filteredList;
     }
   }
+
+  bool isStarred = false;
+  bool isFavorited = false;
+  late AnimationController _animationController;
+  late Animation<double> _buttonAnimation;
 
   StreamController indexController = StreamController();
   final CardSwiperController swiperController = CardSwiperController();
@@ -78,6 +83,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    );
+    _buttonAnimation = Tween<double>(begin: 1.0, end: 1.3).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
     super.initState();
   }
 
@@ -221,39 +236,52 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (context, snapshot) {
                     return Padding(
                         padding: const EdgeInsets.only(top: 8.0, left: 26.0, right: 26.0, bottom: 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FittedBox(
-                          child: BehaviorButton(
-                            icon: Icons.star,
-                            color: Colors.yellow,
-                            text: '${contents[snapshot.data ?? 0].nOfStars}',
-                            onTap: () {},
-                            scale: 1,
-                          ),
-                        ),
-                        FittedBox(
-                          child: BehaviorButton(
-                            icon: Icons.favorite,
-                            color: Colors.red,
-                            text: '${contents[snapshot.data ?? 0].nOfFavs}',
-                            onTap: () {},
-                            scale: 1,
-                          ),
-                        ),
-                        FittedBox(
-                          child: BehaviorButton(
-                            icon: Icons.chat_bubble,
-                            color: Colors.grey,
-                            text: '${contents[snapshot.data ?? 0].nOfComments}',
-                            onTap: () {},
-                            scale: 1,
-                          ),
-                        ),
-                        MoreButton(),
-                      ],
+                    child: StatefulBuilder(
+                      builder: (context,  StateSetter setState) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            FittedBox(
+                              child: BehaviorButton(
+                                icon: Icons.star,
+                                color: (isStarred) ? Colors.yellow : Colors.grey,
+                                text: '${contents[snapshot.data ?? 0].nOfStars + (isStarred ? 1 : 0)}',
+                                onTap: () {
+                                  setState(() {
+                                    isStarred = !isStarred;
+                                  });
+                                },
+                                scale: _buttonAnimation.value,
+                              ),
+                            ),
+                            FittedBox(
+                              child: BehaviorButton(
+                                icon: Icons.favorite,
+                                color: (isFavorited) ? Colors.red : Colors.grey,
+                                text: '${contents[snapshot.data ?? 0].nOfFavs + (isFavorited ? 1 : 0)}',
+                                onTap: () {
+                                  setState(() {
+                                    isFavorited = !isFavorited;
+                                  });
+                                },
+                                scale: _buttonAnimation.value,
+                              ),
+                            ),
+                            FittedBox(
+                              child: BehaviorButton(
+                                icon: Icons.chat_bubble,
+                                color: Colors.grey,
+                                text: '${contents[snapshot.data ?? 0].nOfComments}',
+                                onTap: () {
+                                },
+                                scale: 1,
+                              ),
+                            ),
+                            MoreButton(),
+                          ],
 
+                        );
+                      }
                     ),
                     );
                   },
