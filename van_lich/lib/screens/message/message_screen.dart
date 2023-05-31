@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:van_lich/screens/message/components/my_list_tile.dart';
 
 class MessageScreen extends StatefulWidget {
   const MessageScreen({Key? key}) : super(key: key);
@@ -16,8 +17,10 @@ class _MessageScreen extends State<MessageScreen> {
       scrollDirection: Axis.vertical,
       child: Container(
       padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
-      child: const Column(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 30,),
           Text(
             'Tin nhắn',
             style: TextStyle(
@@ -25,7 +28,8 @@ class _MessageScreen extends State<MessageScreen> {
                 fontWeight: FontWeight.bold
             ),
           ),
-          Text('Implement here'),
+          const SizedBox(height: 20,),
+          MyListTile(),
           ],
         ),
       )
@@ -36,3 +40,4 @@ class _MessageScreen extends State<MessageScreen> {
   }
 
 }
+
