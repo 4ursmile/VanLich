@@ -24,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Profile'),
+        title: Text('Thông tin'),
         bottom: TabBar(
           controller: _tabController,
           tabs: [
@@ -60,7 +60,7 @@ class ProfileTile extends StatelessWidget {
     return SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
             child: Column(
 
               crossAxisAlignment: CrossAxisAlignment.start,
