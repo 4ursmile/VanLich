@@ -221,7 +221,7 @@ class MyApp extends StatelessWidget {
       title: 'Van Lich',
       theme: ThemeData(
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
       home: Pages(),
