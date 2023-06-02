@@ -17,7 +17,7 @@
 </p>
 
 ---
-## **VANLICH API**
+## **VANLICH**
 ---
 
 ## **Table of content**
@@ -26,6 +26,7 @@
 |[Members/roles](#members)|
 |[User ](#user-guide)|
 |[Note](#note)| 
+|[architecture](#architecture)| 
 |[**documentation(*)**](#documentation)|
 ---
 ## **Members**
@@ -88,6 +89,8 @@ What need to do with this Repo?
 > - [x] replate configure with your server
 > - [ ] Keep it's origin 
 > - [x] Contact me for auth api
+---
+# **Architecture**
 
 ---
 # **Documentation**
