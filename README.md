@@ -1,8 +1,7 @@
 
 <h1 style="text-align: center;"><b>Van Lich Mobile App</b></h>
-
 <p align="middle">
-  <img src="https://github.com/UIT-21521109/VanLich/assets/105123355/09a83e0f-8138-4ad8-b9b2-0faa6bcfcd5d" margin="5%" width="50%" />
+  <img src="https://github.com/UIT-21521109/VanLich/assets/105123355/a63ab84f-757e-470c-b9b8-2b2cae3b31b3" margin="5%" width="50%" />
 </p>
 
 ## ***powered by***
@@ -91,6 +90,7 @@ What need to do with this Repo?
 > - [x] Contact me for auth api
 ---
 # **Architecture**
+![VanLichAdrawio](https://github.com/UIT-21521109/VanLich/assets/105123355/dd1f8aeb-406c-4bc8-8a04-1e69d1b12839)
 
 ---
 # **Documentation**
